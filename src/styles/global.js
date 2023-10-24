@@ -18,6 +18,8 @@ export default createGlobalStyle`
     body{
         background-color: ${({ theme }) => theme.COLORS.DARK_400};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+        -webkit-font-smoothing: antialiased;
     }
 
     a{
@@ -32,4 +34,19 @@ export default createGlobalStyle`
     button:hover, a:hover{
         filter: brightness(0.9);
     }
+
+    button{
+        cursor: pointer;
+        background-color:  ${({ theme }) => theme.COLORS. RED_100};
+    }
+
+    input, text-area{
+        border: none;
+    }
+
+    ul, li{
+        text-decoration: none;
+        list-style: none;
+    }
+
 `
