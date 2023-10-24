@@ -38,6 +38,8 @@ export default createGlobalStyle`
     button{
         cursor: pointer;
         background-color:  ${({ theme }) => theme.COLORS. RED_100};
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
     }
 
     input, text-area{
