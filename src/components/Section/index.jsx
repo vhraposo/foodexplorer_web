@@ -45,7 +45,7 @@ export function Section({ title, children }){
 
                 </div>
                
-                <Button icon={PiReceiptLight} title="incluir ∙ R$ 25,00" />
+                <Button icon={PiReceiptLight} title="pedir ∙ R$ 25,00" />
         
             </div>
 

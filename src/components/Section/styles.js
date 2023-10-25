@@ -97,13 +97,14 @@ export const Container = styled.section`
             width: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
 
             margin-top: 4.8rem;
 
             gap: 1.5rem;
             
             >svg{
-                font-size: 2rem;
+                font-size: clamp(0.625rem, 0.401rem + 0.59vw, 1.25rem);
             }
 
             >button{
@@ -112,12 +113,13 @@ export const Container = styled.section`
                 align-items: center;
                 justify-content: center;
                 gap: 0.5rem;
-                font-size: 1rem;
-
+                font-size: .9rem;
+                width: fit-content;
                 height: 3.7rem;
 
                 >svg{
-                    font-size: 2rem;
+                    font-size: 2.3rem;
+                    margin-right: 0.5rem;
                 }
             }
         }
