@@ -10,4 +10,5 @@ export const Container = styled.div`
     grid-template-areas: 
     "header"
     "content"
+    "footer"
 `

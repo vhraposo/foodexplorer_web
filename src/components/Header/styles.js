@@ -3,9 +3,7 @@ import styled from "styled-components"
 export const Container = styled.header`
     grid-area: header;
    
-
-
-    height: 10.5rem;
+    height: 11.4rem;
     width: 100%;
 
     background-color: ${({ theme }) => theme.COLORS.DARKBLUE_600};;
@@ -16,7 +14,7 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
 
-    padding: 0 8rem;
+    
 
     > div{
         display: flex;
@@ -24,17 +22,18 @@ export const Container = styled.header`
         align-items: center;
 
         gap: 1rem;
-
+        margin-top: 2rem;
         >img{
             width: 3rem;
             height: 3rem;
+            
         }
 
         > span{
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
             font-family: Roboto;
-            font-size: 2.4rem;
+            font-size: clamp(2.1rem, 1.992rem + 0.283vw, 2.4rem);
             font-style: normal;
             font-weight: 700;
             line-height: normal;
@@ -45,11 +44,34 @@ export const Container = styled.header`
 export const Logout = styled.button`
     border: none;
     background: none;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
 
     > svg{
         width: 3.2rem;
-        height: 3.2rem;
+        height: 2.2rem;
         flex-shrink: 0;
+
+        margin-right: 1.6rem;
+    }
+
+`
+
+export const Menu = styled.button`
+    border: none;
+    background: none;
+
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    
+
+    > svg{
+        width: 2.4rem;
+        height: 1.8rem;
+        margin-left: 1.6rem;
+        
     }
 
 `
