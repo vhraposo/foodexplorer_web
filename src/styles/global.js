@@ -9,7 +9,7 @@ export default createGlobalStyle`
     }
 
     :root{
-        font-size: 62,5%;
+        font-size: 62.5%;
 
         font-family: 'Poppins', sans-serif;
         font-weight: 400;

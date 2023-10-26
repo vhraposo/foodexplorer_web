@@ -49,31 +49,30 @@ export const Container = styled.section`
 
 
             >img{
-                width: clamp(20rem, 12.83rem + 18.868vw, 40rem);
+                width: clamp(26.4rem, 21.883rem + 11.887vw, 39rem);
                 margin: 1.6rem 0;
             }
         }
 
         h2{
             text-align: center;
-            font-size: clamp(2rem, 1.283rem + 1.887vw, 4rem);
+            font-size: clamp(2.7rem, 2.234rem + 1.226vw, 4rem);
             font-weight: 500;
-            
-
         }
 
         p{
             text-align: center;
-            font-size: clamp(1rem, 0.498rem + 1.321vw, 2.4rem);
+            font-size: clamp(1.6rem, 1.313rem + 0.755vw, 2.4rem);
             font-weight: 400;
-            margin: 1.6rem 0;
+            margin: 2.4rem 0;
         }
 
         ul{
             list-style: none;
             display: flex;
-            align-items: center;
+            align-items: left;
             justify-content: center;
+            
             gap: 1.6rem;
 
             margin: 1.6rem 0;
@@ -81,7 +80,7 @@ export const Container = styled.section`
             flex-wrap: wrap;
 
             li{
-                padding: 4px 8px;
+                padding: .4rem .8rem;
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
@@ -113,9 +112,9 @@ export const Container = styled.section`
                 align-items: center;
                 justify-content: center;
                 gap: 0.5rem;
-                font-size: .9rem;
+                font-size: clamp(0.9rem, 0.721rem + 0.472vw, 1.4rem);
                 width: fit-content;
-                height: 3.7rem;
+                height: 4rem;
 
                 >svg{
                     font-size: 2.3rem;
@@ -130,6 +129,8 @@ export const Container = styled.section`
             justify-content: center;
 
             gap: 1.5rem;
+
+            margin-right: 3rem;
 
             >span{
                 font-family: 'Roboto';

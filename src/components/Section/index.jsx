@@ -34,6 +34,9 @@ export function Section({ title, children }){
                 <li>Ingrediente</li>
                 <li>Ingrediente</li>
                 <li>Ingrediente</li>
+                <li>Ingrediente</li>
+                <li>Ingrediente</li>
+               
             </ul>
 
             <div className='inputstepper'>

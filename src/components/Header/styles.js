@@ -14,7 +14,7 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
 
-    
+  
 
     > div{
         display: flex;
@@ -50,7 +50,7 @@ export const Logout = styled.button`
 
     > svg{
         width: 3.2rem;
-        height: 2.2rem;
+        height: 3.2rem;
         flex-shrink: 0;
 
         margin-right: 1.6rem;
@@ -68,8 +68,8 @@ export const Menu = styled.button`
     
 
     > svg{
-        width: 2.4rem;
-        height: 1.8rem;
+        width: 3.4rem;
+        height: 2.5rem;
         margin-left: 1.6rem;
         
     }

@@ -10,7 +10,7 @@ export function Header(){
     return(
         <Container>
                 
-                <Menu>
+                <Menu className='hamburguer-menu'>
                     <GiHamburgerMenu/>
                 </Menu>
                 
