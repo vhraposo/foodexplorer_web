@@ -1,7 +1,7 @@
 import { Container } from './styles'
 import { Button } from "../../components/Button"
 import { PiArrowArcLeftDuotone, PiReceiptLight } from 'react-icons/pi'
-import { TiMinusOutline, TiPlusOutline } from 'react-icons/ti'
+import { TiMinus, TiPlus } from 'react-icons/ti'
 
 
 
@@ -42,9 +42,9 @@ export function Section({ title, children }){
             <div className='inputstepper'>
 
                 <div className='input-stepper-child'>
-                    <TiMinusOutline className='cursor-hability-pointer' />
+                    <TiMinus className='cursor-hability-pointer' />
                     <span id="count">1</span>
-                    <TiPlusOutline className='cursor-hability-pointer'/>
+                    <TiPlus className='cursor-hability-pointer'/>
 
                 </div>
                

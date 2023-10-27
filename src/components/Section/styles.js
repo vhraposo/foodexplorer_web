@@ -137,10 +137,8 @@ export const Container = styled.section`
                 font-size: 2rem;
                 font-style: normal;
                 font-weight: 700;
-
-                
+ 
             }
-
         }
         .cursor-hability-pointer{
             cursor: pointer;
@@ -149,7 +147,7 @@ export const Container = styled.section`
 
             &:hover{
                 transform: scale(1.1);
-                background-color: ${({ theme }) => theme.COLORS.LIGHT_700};
+                background-color: ${({ theme }) => theme.COLORS.DARK_800};
                 border-radius: 50%;
             }
         }    
