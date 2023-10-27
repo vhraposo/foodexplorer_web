@@ -14,13 +14,10 @@ export function Header(){
                     <GiHamburgerMenu/>
                 </Menu>
                 
-                <div>
+                <div className='logo'>
                     <img src={logo} alt="Logo" />
                     <span>food explorer</span>
                 </div>
-
-    
-
                 <Logout>
                     <PiSignOut />
                 </Logout>
