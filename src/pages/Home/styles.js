@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
     width: 100%;
     height: 100vh;
@@ -18,10 +17,8 @@ export const Brand = styled.div`
     display: flex;
     align-items: center;
   
-    margin-top: 4.4rem;
-    margin-left: 4.4rem;
+    margin: 4.4rem auto 6.2rem 4.4rem;
   
-
     >img{
         margin-bottom: 4rem;
         width: clamp(19.1rem, 3.291rem + 41.604vw, 63.2rem);
@@ -49,24 +46,9 @@ export const Brand = styled.div`
 
 export const Content = styled.div`
     grid-area: content;
-    
+    flex: 1;
     >section{
         display: grid;
-        background-color: red;
-        
-        
-        
-    }
-
-    margin-bottom: 55rem;
-
-
-    .test img{
-        width: 188px;
-        height: 188px;
-        object-fit: contain;
-        
-        
         
     }
     

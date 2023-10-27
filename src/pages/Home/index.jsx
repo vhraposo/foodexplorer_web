@@ -1,5 +1,7 @@
 import { Container, Brand, Content } from './styles'
 import { Header } from '../../components/Header'
+import { Menu } from '../../components/Menu'
+
 import { Carousel } from '../../components/Carousel'
 import { Footer } from '../../components/Footer'
 import macaronsbrand from '../../assets/macaron.png'
@@ -10,7 +12,7 @@ export function Home(){
     
   return(
         <Container>
-            <Header />
+            <Menu />
 
                 <Brand>
                     <img src={macaronsbrand} alt="" />
@@ -18,13 +20,11 @@ export function Home(){
                         <h2>Sabores inigualáveis</h2>
                         <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
                     </div>
-                    
-                
+                     
                 </Brand>
 
             <Content>
                 <Carousel/>
-
 
             </Content>
 
