@@ -20,6 +20,8 @@ export default createGlobalStyle`
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
         -webkit-font-smoothing: antialiased;
+
+        height: 100vh;
     }
 
     a{
