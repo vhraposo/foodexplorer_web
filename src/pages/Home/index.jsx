@@ -12,7 +12,8 @@ export function Home(){
     
   return(
         <Container>
-            <Menu />
+            <Header/>
+            
 
                 <Brand>
                     <img src={macaronsbrand} alt="" />
@@ -22,10 +23,11 @@ export function Home(){
                     </div>
                      
                 </Brand>
+                
 
             <Content>
                 <Carousel/>
-
+                   
             </Content>
 
             <Footer/>

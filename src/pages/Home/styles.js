@@ -45,7 +45,7 @@ export const Brand = styled.div`
 `
 
 export const Content = styled.div`
-    grid-area: content;
+    
     flex: 1;
     >section{
         display: grid;
