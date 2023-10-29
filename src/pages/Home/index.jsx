@@ -1,7 +1,5 @@
 import { Container, Brand, Content } from './styles'
 import { Header } from '../../components/Header'
-import { Menu } from '../../components/Menu'
-
 import { Carousel } from '../../components/Carousel'
 import { Footer } from '../../components/Footer'
 import macaronsbrand from '../../assets/macaron.png'
@@ -13,8 +11,6 @@ export function Home(){
   return(
         <Container>
             <Header/>
-            
-
                 <Brand>
                     <img src={macaronsbrand} alt="" />
                     <div>
@@ -24,7 +20,6 @@ export function Home(){
                      
                 </Brand>
                 
-
             <Content>
                 <Carousel/>
                    
