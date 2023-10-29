@@ -1,57 +1,50 @@
-import { Container } from './styles'
-import { Button } from "../../components/Button"
 import { PiArrowArcLeftDuotone, PiReceiptLight } from 'react-icons/pi'
 import { TiMinus, TiPlus } from 'react-icons/ti'
-
-
+import { Button } from '../../components/Button'
+import { Container } from './styles'
 
 import dish from '../../assets/dish.png'
 
-export function Section({ title, children }){
-     return (
-        
-        <Container>
-            <div className='backdiv'>
-                <PiArrowArcLeftDuotone />
-                Voltar
-            </div>
+export function Section({ title, children }) {
+  return (
+    <Container>
+      <div className="backdiv">
+        <PiArrowArcLeftDuotone />
+        Voltar
+      </div>
 
-            <div className='imagediv'>
-                <img src={dish} alt="" />
-            </div>
+      <div className="imagediv">
+        <img src={dish} alt="" />
+      </div>
 
-            <h2>{title}</h2>
-            {children}
+      <h2>{title}</h2>
+      {children}
 
-            <p>
-                 Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.
-            </p>
+      <p>
+        Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão
+        naan dá um toque especial.
+      </p>
 
-            <ul>
-                <li>Ingrediente</li>
-                <li>Ingrediente</li>
-                <li>Ingrediente</li>
-                <li>Ingrediente</li>
-                <li>Ingrediente</li>
-                <li>Ingrediente</li>
-                <li>Ingrediente</li>
-                <li>Ingrediente</li>
-               
-            </ul>
+      <ul>
+        <li>Ingrediente</li>
+        <li>Ingrediente</li>
+        <li>Ingrediente</li>
+        <li>Ingrediente</li>
+        <li>Ingrediente</li>
+        <li>Ingrediente</li>
+        <li>Ingrediente</li>
+        <li>Ingrediente</li>
+      </ul>
 
-            <div className='inputstepper'>
+      <div className="inputstepper">
+        <div className="input-stepper-child">
+          <TiMinus className="cursor-hability-pointer" />
+          <span id="count">1</span>
+          <TiPlus className="cursor-hability-pointer" />
+        </div>
 
-                <div className='input-stepper-child'>
-                    <TiMinus className='cursor-hability-pointer' />
-                    <span id="count">1</span>
-                    <TiPlus className='cursor-hability-pointer'/>
-
-                </div>
-               
-                <Button icon={PiReceiptLight} title="pedir ∙ R$ 25,00" />
-        
-            </div>
-
-        </Container>
-    )
+        <Button icon={PiReceiptLight} title="pedir ∙ R$ 25,00" />
+      </div>
+    </Container>
+  )
 }

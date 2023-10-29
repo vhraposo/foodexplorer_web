@@ -1,5 +1,4 @@
-import { createGlobalStyle } from "styled-components"
-
+import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
     *{
@@ -39,7 +38,7 @@ export default createGlobalStyle`
 
     button{
         cursor: pointer;
-        background-color:  ${({ theme }) => theme.COLORS. RED_100};
+        background-color:  ${({ theme }) => theme.COLORS.RED_100};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
     }

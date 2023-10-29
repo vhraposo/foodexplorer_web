@@ -1,158 +1,146 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.section`
-    margin: 3.6rem  3rem;
-   
+  margin: 3.6rem 3rem;
 
+  > .backdiv {
+    width: fit-content;
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
-        >.backdiv{
-            
-            width: fit-content;
-            font-size: 24px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+    margin-left: 0.5px;
 
-            margin-left: 0.5px;
+    > svg {
+      width: 3.2rem;
+      height: 3.2rem;
 
-            >svg{
-                width: 3.2rem;
-                height: 3.2rem;
+      cursor: pointer;
+    }
 
-                cursor: pointer;
-            }
+    &hover {
+    }
+  }
+  > .backdiv h2 {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-            &hover{
+    padding-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
 
-            }
-        }
-        >.backdiv h2{
-            border-bottom-width: 1px;
-            border-bottom-style: solid;
-            border-bottom-color: ${({ theme }) => theme.COLORS.DARK_700};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    font-size: 4rem;
+    font-weight: 500;
+  }
 
-            padding-bottom: 1.6rem;
-            margin-bottom: 2.4rem;
+  .imagediv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            color: ${({ theme }) => theme.COLORS.LIGHT_300};
-            font-size: 4rem;
-            font-weight: 500;
+    > img {
+      width: clamp(26.4rem, 21.883rem + 11.887vw, 39rem);
+      margin: 1.6rem 0;
+    }
+  }
 
-        }
+  h2 {
+    text-align: center;
+    font-size: clamp(2.7rem, 2.234rem + 1.226vw, 4rem);
+    font-weight: 500;
+  }
 
-        .imagediv{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+  p {
+    text-align: center;
+    font-size: clamp(1.6rem, 1.313rem + 0.755vw, 2.4rem);
+    font-weight: 400;
+    margin: 2.4rem 0;
+  }
 
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: left;
+    justify-content: center;
 
-            >img{
-                width: clamp(26.4rem, 21.883rem + 11.887vw, 39rem);
-                margin: 1.6rem 0;
-            }
-        }
+    gap: 1.6rem;
 
-        h2{
-            text-align: center;
-            font-size: clamp(2.7rem, 2.234rem + 1.226vw, 4rem);
-            font-weight: 500;
-        }
+    margin: 1.6rem 0;
 
-        p{
-            text-align: center;
-            font-size: clamp(1.6rem, 1.313rem + 0.755vw, 2.4rem);
-            font-weight: 400;
-            margin: 2.4rem 0;
-        }
+    flex-wrap: wrap;
 
-        ul{
-            list-style: none;
-            display: flex;
-            align-items: left;
-            justify-content: center;
-            
-            gap: 1.6rem;
+    li {
+      padding: 0.4rem 0.8rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      border-radius: 5px;
+      background-color: ${({ theme }) => theme.COLORS.DARK_1000};
 
-            margin: 1.6rem 0;
+      white-space: nowrap;
+    }
+  }
 
-            flex-wrap: wrap;
+  .inputstepper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            li{
-                padding: .4rem .8rem;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                gap: .8rem;
-                border-radius: 5px;
-                background-color: ${({ theme }) => theme.COLORS.DARK_1000};
+    margin-top: 4.8rem;
 
-                white-space: nowrap;
-            }
-        }
+    gap: 1.5rem;
 
-        .inputstepper{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    > svg {
+      font-size: clamp(0.625rem, 0.401rem + 0.59vw, 1.25rem);
+    }
 
-            margin-top: 4.8rem;
+    > button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: clamp(0.9rem, 0.721rem + 0.472vw, 1.4rem);
+      width: fit-content;
+      height: 4rem;
 
-            gap: 1.5rem;
-            
-            >svg{
-                font-size: clamp(0.625rem, 0.401rem + 0.59vw, 1.25rem);
-            }
+      > svg {
+        font-size: 2.3rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
 
-            >button{
-                
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-                font-size: clamp(0.9rem, 0.721rem + 0.472vw, 1.4rem);
-                width: fit-content;
-                height: 4rem;
+  .input-stepper-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                >svg{
-                    font-size: 2.3rem;
-                    margin-right: 0.5rem;
-                }
-            }
-        }
+    gap: 1.5rem;
 
-        .input-stepper-child{
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    margin-right: 3rem;
 
-            gap: 1.5rem;
+    > span {
+      font-family: 'Roboto';
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 700;
+    }
+  }
+  .cursor-hability-pointer {
+    cursor: pointer;
+    width: 2.7rem;
+    height: 2.7rem;
 
-            margin-right: 3rem;
-
-            >span{
-                font-family: 'Roboto';
-                font-size: 2rem;
-                font-style: normal;
-                font-weight: 700;
- 
-            }
-        }
-        .cursor-hability-pointer{
-            cursor: pointer;
-            width: 2.7rem;
-            height: 2.7rem;
-
-            &:hover{
-                transform: scale(1.1);
-                background-color: ${({ theme }) => theme.COLORS.DARK_800};
-                border-radius: 50%;
-            }
-        }    
-        
-    
-
+    &:hover {
+      transform: scale(1.1);
+      background-color: ${({ theme }) => theme.COLORS.DARK_800};
+      border-radius: 50%;
+    }
+  }
 `
-

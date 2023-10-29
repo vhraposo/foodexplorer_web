@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { PiSignOut } from 'react-icons/pi';
-import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi';
-import { Container, Logout } from './styles';
-import logo from '../../assets/logo.svg';
+import { useState } from 'react'
+import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
+import { PiSignOut } from 'react-icons/pi'
+import logo from '../../assets/logo.svg'
+import { Container, Logout } from './styles'
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen)
   }
-  
 
   return (
     <Container $menuIsOpen={isMenuOpen}>
@@ -23,7 +22,7 @@ export function Header() {
       </div>
 
       <div className={`menu-open`}>
-        <div className='heading-menu' onClick={toggleMenu}>
+        <div className="heading-menu" onClick={toggleMenu}>
           <GiKnifeFork />
           <h2>Menu</h2>
         </div>
@@ -44,5 +43,5 @@ export function Header() {
         <PiSignOut />
       </Logout>
     </Container>
-  );
+  )
 }

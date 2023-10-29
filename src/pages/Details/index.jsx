@@ -1,20 +1,17 @@
-import { Container } from "./styles"
+import { Container } from './styles'
 
-import { Header } from "../../components/Header"
-import { Section } from "../../components/Section"
-import { Footer } from "../../components/Footer"
+import { Footer } from '../../components/Footer'
+import { Header } from '../../components/Header'
+import { Section } from '../../components/Section'
 
-
-export function Details(){
-  
-  return(
+export function Details() {
+  return (
     <Container>
       <Header />
 
       <Section title="Salada Ravanello" />
-      
 
-      <Footer/>
+      <Footer />
     </Container>
   )
 }
