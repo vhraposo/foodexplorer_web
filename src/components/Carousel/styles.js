@@ -13,10 +13,12 @@ export const Container = styled.section`
 
   .splide__list {
     display: flex;
-    gap: 1.6rem;
-    justify-content: center;
+    justify-content: left;
   }
-
+  .splide__slide {
+    max-width: 25.6rem;
+    width: 100%;
+  }
   .splide__slide__container {
     display: flex;
     flex-direction: column;
@@ -29,6 +31,8 @@ export const Container = styled.section`
     border-radius: 0.8rem;
 
     transition: ease-in-out 150ms;
+    position: relative;
+    margin-left: 4rem;
 
     &:hover {
       box-shadow:
@@ -39,11 +43,11 @@ export const Container = styled.section`
     > svg {
       width: 2.4rem;
       height: 2.2rem;
-      position: absolute;
-      right: 1.6rem;
-      top: 1.6rem;
 
       cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 3rem;
 
       transition: fill 0.5s;
 

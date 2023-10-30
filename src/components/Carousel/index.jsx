@@ -53,10 +53,9 @@ export function Carousel({ data }) {
 
   useEffect(() => {
     new Splide(`#splide${id}`, {
+      focus: 'right',
       pagination: false,
       autoWidth: true,
-      rewind: true,
-      rewindByDrag: true,
     }).mount()
   }, [id, data, dishes])
   return (
