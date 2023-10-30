@@ -20,6 +20,8 @@ export function Home() {
 
       <Content>
         <Carousel />
+        <Carousel />
+        <Carousel />
       </Content>
 
       <Footer />
