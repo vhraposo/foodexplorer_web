@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BsSearch } from 'react-icons/bs'
 import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
 import { PiSignOut } from 'react-icons/pi'
 import logo from '../../assets/logo.svg'
@@ -25,6 +26,10 @@ export function Header() {
         <div className="heading-menu" onClick={toggleMenu}>
           <GiKnifeFork />
           <h2>Menu</h2>
+        </div>
+        <div className="input-search">
+          <BsSearch />
+          <input type="text" placeholder="Busque por pratos ou ingredientes" />
         </div>
         <ul>
           <li>

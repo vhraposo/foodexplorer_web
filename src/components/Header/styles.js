@@ -24,9 +24,10 @@ const slideOut = keyframes`
 
 export const Container = styled.header`
   grid-area: header;
-  padding: 1.6rem;
-  height: 11.4rem;
+  padding: 3rem;
+  height: 21.4rem;
   width: 100%;
+  margin-bottom: 2.4rem;
 
   background-color: ${({ theme }) => theme.COLORS.DARKBLUE_600};
   border-bottom-width: 1px;
@@ -64,13 +65,12 @@ export const Container = styled.header`
     height: 100%;
     background-color: ${({ theme }) => theme.COLORS.DARKBLUE_600};
     padding: 2.4rem 3.2rem;
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     top: 0;
     bottom: 0;
     left: 0;
     margin: unset;
-    transition: all 5.3s ease-in-out;
     .heading-menu {
       display: flex;
       align-items: center;
@@ -106,6 +106,37 @@ export const Container = styled.header`
           text-decoration: none;
         }
       }
+    }
+  }
+
+  .input-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    > input {
+      background-color: #0d1d25;
+      width: 100%;
+      height: 4.8rem;
+      padding-left: 3rem;
+      gap: 1.4rem;
+    }
+
+    input::placeholder {
+      padding-left: 2rem;
+
+      color: ${({ theme }) => theme.COLORS.LIGHT_500};
+      font-family: Roboto;
+      font-size: 1.6rem;
+    }
+
+    > svg {
+      width: 2.25rem;
+      height: 2.25rem;
+      position: absolute;
+
+      fill: ${({ theme }) => theme.COLORS.LIGHT_300};
+      margin: 1.4rem;
     }
   }
 
