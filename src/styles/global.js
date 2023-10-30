@@ -52,4 +52,29 @@ export default createGlobalStyle`
         list-style: none;
     }
 
+
+
+    * {
+        --sb-track-color: #2f3538;
+        --sb-thumb-color: #111c73;
+        --sb-size: 8px;
+
+        scrollbar-color: var(--sb-thumb-color) 
+                        var(--sb-track-color);
+    }
+
+    *::-webkit-scrollbar {
+    width: var(--sb-size) 
+    }
+
+    *::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 25px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 25px;
+    
+    }
 `
