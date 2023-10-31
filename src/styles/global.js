@@ -5,6 +5,13 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+
+        --sb-track-color: #2f3538;
+        --sb-thumb-color: #111c73;
+        --sb-size: 8px;
+
+        scrollbar-color: var(--sb-thumb-color) 
+                        var(--sb-track-color);
     }
 
     :root{
@@ -21,6 +28,7 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
 
         height: 100vh;
+        
     }
 
     a{
@@ -52,16 +60,10 @@ export default createGlobalStyle`
         list-style: none;
     }
 
-
-
-    * {
-        --sb-track-color: #2f3538;
-        --sb-thumb-color: #111c73;
-        --sb-size: 8px;
-
-        scrollbar-color: var(--sb-thumb-color) 
-                        var(--sb-track-color);
+    input{
+        outline: none;
     }
+
 
     *::-webkit-scrollbar {
     width: var(--sb-size) 
