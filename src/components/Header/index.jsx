@@ -3,6 +3,7 @@ import { BsSearch } from 'react-icons/bs'
 import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
 import { PiSignOut } from 'react-icons/pi'
 import logo from '../../assets/logo.svg'
+import { Footer } from '../Footer'
 import { Container, Logout } from './styles'
 
 export function Header() {
@@ -43,6 +44,7 @@ export function Header() {
             <a href="/contact">Contato</a>
           </li>
         </ul>
+        <Footer />
       </div>
 
       <Logout>

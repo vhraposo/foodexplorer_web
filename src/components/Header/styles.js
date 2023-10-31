@@ -55,7 +55,8 @@ export const Container = styled.header`
       $menuIsOpen
         ? css`
             animation: ${slideIn} 0.5s ease-in-out;
-            display: block;
+            display: flex;
+            flex-direction: column;
           `
         : css`
             animation: ${slideOut} 0.5s ease-in-out forwards;
@@ -64,7 +65,7 @@ export const Container = styled.header`
     width: 100%;
     height: 100%;
     background-color: ${({ theme }) => theme.COLORS.DARKBLUE_600};
-    padding: 2.4rem 3.2rem;
+    padding: 0 3.2rem;
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -76,7 +77,7 @@ export const Container = styled.header`
       align-items: center;
       gap: 1.6rem;
 
-      height: 11.4rem;
+      height: 10rem;
       width: 100%;
 
       > svg {
@@ -92,6 +93,7 @@ export const Container = styled.header`
     }
 
     ul {
+      flex: 1;
       li {
         font-size: 2.4rem;
 
@@ -107,6 +109,12 @@ export const Container = styled.header`
         }
       }
     }
+    footer {
+      min-height: 4.8rem;
+      min-width: 42.8rem;
+      background: transparent;
+      border-top: 1px solid var(--dark-dark-1000, #192227);
+    }
   }
 
   .input-search {
@@ -120,12 +128,11 @@ export const Container = styled.header`
       border: none;
       width: 100%;
       height: 4.8rem;
-      padding-left: 3rem;
+      padding-left: 5rem;
+      border-radius: 0.5rem;
     }
 
     input::placeholder {
-      padding-left: 2rem;
-
       color: ${({ theme }) => theme.COLORS.LIGHT_500};
       font-family: Roboto;
       font-size: 1.6rem;
