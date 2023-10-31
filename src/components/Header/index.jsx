@@ -11,6 +11,7 @@ export function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+  console.log(isMenuOpen)
 
   return (
     <Container $menuIsOpen={isMenuOpen}>

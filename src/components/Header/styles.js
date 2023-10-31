@@ -12,13 +12,14 @@ const slideIn = keyframes`
 `
 
 const slideOut = keyframes`
-  from {
+  0% {
     width: 100%;
     opacity: 1;
   }
-  to {
+  100%{
     width: 0;
     opacity: 0;
+    display: none;
   }
 `
 
@@ -57,8 +58,7 @@ export const Container = styled.header`
             display: block;
           `
         : css`
-            animation: ${slideOut} 0.5s ease-in-out;
-            display: none;
+            animation: ${slideOut} 0.5s ease-in-out forwards;
           `}
 
     width: 100%;
@@ -116,10 +116,11 @@ export const Container = styled.header`
 
     > input {
       background-color: #0d1d25;
+      color: ${({ theme }) => theme.COLORS.LIGHT_500};
+      border: none;
       width: 100%;
       height: 4.8rem;
       padding-left: 3rem;
-      gap: 1.4rem;
     }
 
     input::placeholder {
