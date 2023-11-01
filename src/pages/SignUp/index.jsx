@@ -1,13 +1,33 @@
+import React, { useEffect, useState } from 'react'
 import { BsPerson } from 'react-icons/bs'
 import { MdOutlineMailLock } from 'react-icons/md'
 import { TfiLock } from 'react-icons/tfi'
 import polygon from '../../assets/polygon.svg'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
-
 import { Container, Form } from './styles'
 
-export function SignOut() {
+export function SignUp() {
+  const [isHidden, setIsHidden] = useState(false)
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 700) {
+        setIsHidden(true)
+      } else {
+        setIsHidden(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    // Chama handleResize no carregamento da página
+    handleResize()
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <Container>
       <div className="image-logo">
@@ -15,7 +35,7 @@ export function SignOut() {
         <h1>food explorer</h1>
       </div>
       <Form>
-        <h2 className="hidden">Faça Login</h2>
+        <h2 className={isHidden ? 'hidden' : ''}>Crie sua conta</h2>
         <Input
           placeholder={'Exemplo: Victor Raposo'}
           label={'Seu nome'}
@@ -33,7 +53,7 @@ export function SignOut() {
           icon={TfiLock}
           type={'password'}
         ></Input>
-        <Button title="Entrar" />
+        <Button title="Criar conta" />
 
         <a href="">
           <link href="" />
