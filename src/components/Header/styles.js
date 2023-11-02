@@ -16,7 +16,7 @@ const slideOut = keyframes`
     width: 100%;
     opacity: 1;
   }
-  100%{
+  100% {
     width: 0;
     opacity: 0;
     display: none;
@@ -31,13 +31,26 @@ export const Container = styled.header`
   margin-bottom: 2.4rem;
 
   background-color: ${({ theme }) => theme.COLORS.DARKBLUE_600};
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${({ theme }) => theme.COLORS.DARKBLUE_600};
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 700px) {
+    .menu-open {
+      animation: none;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    button svg {
+      display: none;
+    }
+  }
 
   button {
     background-color: transparent;
