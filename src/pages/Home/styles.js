@@ -40,6 +40,17 @@ export const Brand = styled.div`
       font-size: clamp(1.2rem, 1.057rem + 0.377vw, 1.6rem);
     }
   }
+  @media (min-width: 700px) {
+    width: 90%;
+    height: 26rem;
+    margin-left: 10rem;
+    margin-top: 12rem;
+
+    > img {
+      top: -5.5rem;
+      left: -5rem;
+    }
+  }
 `
 
 export const Content = styled.div`
