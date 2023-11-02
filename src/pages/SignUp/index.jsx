@@ -20,7 +20,6 @@ export function SignUp() {
     }
 
     window.addEventListener('resize', handleResize)
-    // Chama handleResize no carregamento da página
     handleResize()
 
     return () => {

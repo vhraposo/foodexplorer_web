@@ -30,9 +30,8 @@ export const Container = styled.label`
   }
   > svg {
     position: absolute;
-    top: 45%;
+    top: 13px;
     left: 10px;
     font-size: 1.6rem;
-    transform: translateY(50%);
   }
 `

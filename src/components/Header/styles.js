@@ -36,7 +36,32 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
 
+  button {
+    background-color: transparent;
+    border: none;
+    width: fit-content;
+    min-height: fit-content;
+  }
+  button svg {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
   @media (min-width: 700px) {
+    header {
+      width: 100%;
+    }
+    .heading-one {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      width: 100%;
+    }
+    .input-search {
+      width: 80rem;
+    }
+
     .menu-open {
       animation: none;
       display: flex;
@@ -47,20 +72,21 @@ export const Container = styled.header`
       display: none;
     }
 
-    button svg {
+    .orders-logout {
+      display: flex;
+    }
+
+    button:first-child {
       display: none;
     }
-  }
 
-  button {
-    background-color: transparent;
-    border: none;
-    width: fit-content;
-    min-height: fit-content;
-  }
-  button svg {
-    width: 3.2rem;
-    height: 3.2rem;
+    .orders-button {
+      display: initial !important;
+      background-color: ${({ theme }) => theme.COLORS.RED_100};
+      width: 15.2rem;
+      height: 4.8rem;
+      margin-right: 3.2rem;
+    }
   }
 
   .menu-open {
