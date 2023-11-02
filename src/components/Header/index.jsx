@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
-import { PiSignOut } from 'react-icons/pi'
+import { PiReceiptThin, PiSignOut } from 'react-icons/pi'
 import logo from '../../assets/logo.svg'
 import { Button } from '../Button'
 import { Footer } from '../Footer'
@@ -23,15 +23,20 @@ export function Header() {
         <div className="logo">
           <img src={logo} alt="Logo" />
           <span>food explorer</span>
+          <Button className="receipt-icon" title="0" icon={PiReceiptThin} />
         </div>
-        <div className="input-search">
-          <BsSearch />
-          <input type="text" placeholder="Busque por pratos ou ingredientes" />
+        <div className="input-search ">
+          <BsSearch className="hidden" />
+          <input
+            className="hidden"
+            type="text"
+            placeholder="Busque por pratos ou ingredientes"
+          />
         </div>
-        <div className="orders-logout">
+        <div className="orders-logout hidden">
           <Button
             className="orders-button"
-            icon="PiReceiptThin"
+            icon={PiReceiptThin}
             title="Pedidos (0)"
           />
           <Logout>
@@ -49,6 +54,7 @@ export function Header() {
           <BsSearch />
           <input type="text" placeholder="Busque por pratos ou ingredientes" />
         </div>
+
         <ul>
           <li>
             <a href="/">Home</a>

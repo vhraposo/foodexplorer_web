@@ -47,6 +47,16 @@ export const Container = styled.header`
     height: 3.2rem;
   }
 
+  .hidden {
+    display: none;
+  }
+
+  .receipt-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 5rem;
+  }
+
   @media (min-width: 700px) {
     header {
       width: 100%;
@@ -59,13 +69,23 @@ export const Container = styled.header`
       width: 100%;
     }
     .input-search {
-      width: 80rem;
+      width: 70rem;
+      > svg {
+        display: initial;
+      }
+      > input {
+        display: initial;
+      }
     }
 
     .menu-open {
       animation: none;
       display: flex;
       flex-direction: row;
+    }
+
+    .receipt-icon {
+      display: none;
     }
 
     .logo {
@@ -81,11 +101,18 @@ export const Container = styled.header`
     }
 
     .orders-button {
-      display: initial !important;
+      display: flex !important;
+      align-items: center;
+      gap: 1rem;
       background-color: ${({ theme }) => theme.COLORS.RED_100};
       width: 15.2rem;
       height: 4.8rem;
       margin-right: 3.2rem;
+
+      > svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
     }
   }
 
