@@ -21,8 +21,8 @@ export const Brand = styled.div`
 
   > img {
     margin-bottom: 4rem;
-    width: clamp(19.1rem, 3.291rem + 41.604vw, 63.2rem);
-    height: clamp(12rem, 1.747rem + 26.981vw, 40.6rem);
+    width: clamp(19.1rem, 3.291rem + 41.604vw, 60.2rem);
+    height: clamp(12rem, 1.747rem + 26.981vw, 35.6rem);
 
     position: relative;
     left: -1.5rem;
@@ -47,7 +47,7 @@ export const Brand = styled.div`
     margin-top: 12rem;
 
     > img {
-      top: -5.5rem;
+      top: -3rem;
       left: -5rem;
     }
   }

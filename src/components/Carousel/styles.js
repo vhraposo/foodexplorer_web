@@ -154,4 +154,31 @@ export const Container = styled.section`
       fill: red;
     }
   }
+
+  @media (min-width: 700px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .splide__slide__container {
+      width: 25.6rem;
+      height: 40rem;
+      margin-bottom: 2rem;
+
+      > img {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+      }
+      .splide__slide__container__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .splide__list {
+      display: flex;
+      gap: 2.7rem;
+    }
+  }
 `
