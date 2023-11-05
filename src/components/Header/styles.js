@@ -221,6 +221,10 @@ export const Container = styled.header`
 
     gap: 1rem;
 
+    svg {
+      margin-left: 5rem;
+    }
+
     > img {
       width: 3rem;
       height: 3rem;

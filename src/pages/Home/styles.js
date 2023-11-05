@@ -41,10 +41,10 @@ export const Brand = styled.div`
     }
   }
   @media (min-width: 700px) {
+    max-width: 1440px;
     width: 90%;
     height: 26rem;
-    margin-left: 10rem;
-    margin-top: 12rem;
+    margin-inline: auto;
 
     > img {
       top: -3rem;
