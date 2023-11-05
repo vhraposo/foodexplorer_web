@@ -36,15 +36,21 @@ export const Container = styled.section`
     font-weight: 500;
   }
 
-  .imagediv {
+  .wrap {
     width: 100%;
+    max-width: 1440px;
+
     display: flex;
+    flex-direction: column;
+    gap: 4rem;
     align-items: center;
     justify-content: center;
+    margin-inline: auto;
+    height: 80%;
 
     > img {
       width: clamp(26.4rem, 21.883rem + 11.887vw, 39rem);
-      margin: 1.6rem 0;
+      margin-top: 8rem;
     }
   }
 
@@ -144,43 +150,43 @@ export const Container = styled.section`
     }
   }
   @media (min-width: 700px) {
-    .imagediv {
-      float: left;
-      width: fit-content;
-      margin: 0 10rem 0 15rem;
-    }
+    .wrap {
+      display: flex;
+      flex-direction: row;
+      gap: 4rem;
 
+      > img {
+        margin-top: unset;
+      }
+    }
     .dish-info {
+      flex: 1;
+      height: 74%;
       display: flex;
       flex-direction: column;
-      margin-right: 5rem;
-      margin-top: 5rem;
+      justify-content: center;
     }
 
     .section-title {
-      float: right;
-
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin-top: 2rem;
     }
 
     .section-description,
     .section-ingredients,
     .inputstepper {
       flex-wrap: wrap;
-      width: 80%;
       display: flex;
       justify-content: flex-start;
       text-align: left;
     }
 
     .inputstepper {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
     .section-description {
       margin: unset;
+      margin-top: 1rem;
+      font-size: 1.8rem;
     }
   }
 `

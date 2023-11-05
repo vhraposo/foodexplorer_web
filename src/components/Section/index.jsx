@@ -8,41 +8,40 @@ import dish from '../../assets/dish.png'
 export function Section({ title, children }) {
   return (
     <Container>
-      <div className="backdiv">
+      <div className="backdiv" title="voltar">
         <PiArrowArcLeftDuotone />
         Voltar
       </div>
 
-      <div className="imagediv">
+      <div className="wrap">
         <img src={dish} alt="" />
-      </div>
-      <div className="dish-info">
-        <h2 className="section-title">{title}</h2>
-        {children}
+        <div className="dish-info">
+          <h2 className="section-title">{title}</h2>
+          {children}
 
-        <p className="section-description">
-          Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O
-          pão naan dá um toque especial.
-        </p>
+          <p className="section-description">
+            Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O
+            pão naan dá um toque especial.
+          </p>
+          <ul className="section-ingredients">
+            <li>Ingrediente</li>
+            <li>Ingrediente</li>
+            <li>Ingrediente</li>
+            <li>Ingrediente</li>
+            <li>Ingrediente</li>
+            <li>Ingrediente</li>
+            <li>Ingrediente</li>
+          </ul>
 
-        <ul className="section-ingredients">
-          <li>Ingrediente</li>
-          <li>Ingrediente</li>
-          <li>Ingrediente</li>
-          <li>Ingrediente</li>
-          <li>Ingrediente</li>
-          <li>Ingrediente</li>
-          <li>Ingrediente</li>
-        </ul>
+          <div className="inputstepper">
+            <div className="input-stepper-child">
+              <TiMinus className="cursor-hability-pointer" />
+              <span id="count">1</span>
+              <TiPlus className="cursor-hability-pointer" />
+            </div>
 
-        <div className="inputstepper">
-          <div className="input-stepper-child">
-            <TiMinus className="cursor-hability-pointer" />
-            <span id="count">1</span>
-            <TiPlus className="cursor-hability-pointer" />
+            <Button icon={PiReceiptLight} title="pedir ∙ R$ 25,00" />
           </div>
-
-          <Button icon={PiReceiptLight} title="pedir ∙ R$ 25,00" />
         </div>
       </div>
     </Container>
