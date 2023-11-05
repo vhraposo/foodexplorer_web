@@ -10,4 +10,8 @@ export const Container = styled.div`
     'header'
     'content'
     'footer';
+
+  header {
+    height: 12rem;
+  }
 `

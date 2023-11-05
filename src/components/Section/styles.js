@@ -143,4 +143,44 @@ export const Container = styled.section`
       border-radius: 50%;
     }
   }
+  @media (min-width: 700px) {
+    .imagediv {
+      float: left;
+      width: fit-content;
+      margin: 0 10rem 0 15rem;
+    }
+
+    .dish-info {
+      display: flex;
+      flex-direction: column;
+      margin-right: 5rem;
+      margin-top: 5rem;
+    }
+
+    .section-title {
+      float: right;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 2rem;
+    }
+
+    .section-description,
+    .section-ingredients,
+    .inputstepper {
+      flex-wrap: wrap;
+      width: 80%;
+      display: flex;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .inputstepper {
+      margin-top: 1rem;
+    }
+    .section-description {
+      margin: unset;
+    }
+  }
 `
