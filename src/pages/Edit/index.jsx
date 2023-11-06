@@ -5,6 +5,7 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Input } from '../../components/Input'
 
+import { toast } from 'react-toastify'
 import {
   ButtonsWrapper,
   Container,
@@ -14,14 +15,14 @@ import {
   TagsWrapper,
 } from './styles'
 
-export function DishEdit() {
+export function Edit() {
   return (
     <Container>
       <Header />
       <main>
         <div className="backdiv" title="voltar">
           <PiArrowArcLeftDuotone title="Voltar" />
-          <h2>Novo prato</h2>
+          <h2>Editar prato</h2>
         </div>
 
         <Form>
@@ -52,25 +53,34 @@ export function DishEdit() {
           <div>
             <InputWrapper>
               <label>Ingredientes</label>
-              <TagsWrapper>
-                <Input placeholder="Adicionar" isNew={true} />
+              <TagsWrapper className="ingredients-input">
+                <Input placeholder="Adicionar" />
               </TagsWrapper>
             </InputWrapper>
             <InputWrapper>
               <label>Preço</label>
-              <Input value="25.00" dark={false} placeholder="R$ 00,00" />
+              <Input type="number" value="R$ 25.00" placeholder="R$ 00,00" />
             </InputWrapper>
           </div>
           <div>
             <InputWrapper>
               <label>Descrição</label>
-              <textarea
-                value=""
-                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-              />
+              <textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" />
             </InputWrapper>
+
             <ButtonsWrapper>
-              <Button title="Salvar alterações" />
+              <Button
+                title="Salvar alterações"
+                onClick={() => {
+                  toast.success('Prato salvo com sucesso!')
+                }}
+              />
+              <Button
+                title="Excluir prato"
+                onClick={() => {
+                  toast.success('Prato excluído com sucesso!')
+                }}
+              />
             </ButtonsWrapper>
           </div>
         </Form>

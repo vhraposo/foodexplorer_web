@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BsPerson } from 'react-icons/bs'
 import { MdOutlineMailLock } from 'react-icons/md'
 import { TfiLock } from 'react-icons/tfi'
+import { toast } from 'react-toastify'
 import polygon from '../../assets/polygon.svg'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
@@ -53,7 +54,12 @@ export function SignIn() {
           icon={TfiLock}
           type={'password'}
         ></Input>
-        <Button title="Entrar" />
+        <Button
+          title="Entrar"
+          onClick={() => {
+            toast.success(`Bem vindo, Usuário`)
+          }}
+        />
 
         <a href="">
           <link href="" />

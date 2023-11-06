@@ -78,15 +78,24 @@ export const Form = styled.form`
   gap: 2.4rem;
   width: 100%;
 
+  input {
+    height: 5rem;
+  }
+
   > div {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
   }
 
+  .ingredients-input {
+    padding: 3.8px;
+  }
+
   @media (min-width: 700px) {
     gap: 3.2rem;
     max-width: 112rem;
+
     > div {
       display: flex;
 
