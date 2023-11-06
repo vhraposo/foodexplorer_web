@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { BsPerson } from 'react-icons/bs'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { MdOutlineMailLock } from 'react-icons/md'
 import { TfiLock } from 'react-icons/tfi'
 import { toast } from 'react-toastify'
@@ -37,11 +38,7 @@ export function SignIn() {
       </div>
       <Form>
         <h2 className={isHidden ? 'hidden' : ''}>Faça login</h2>
-        <Input
-          placeholder={'Exemplo: Victor Raposo'}
-          label={'Seu nome'}
-          icon={BsPerson}
-        ></Input>
+
         <Input
           placeholder={'Exemplo: exemplo@exemplo.com.br'}
           label={'Email'}
@@ -61,10 +58,7 @@ export function SignIn() {
           }}
         />
 
-        <a href="">
-          <link href="" />
-          CRIAR CONTA
-        </a>
+        <Link to="/register">Criar conta</Link>
       </Form>
     </Container>
   )

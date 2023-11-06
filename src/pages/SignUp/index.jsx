@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { BsPerson } from 'react-icons/bs'
 import { MdOutlineMailLock } from 'react-icons/md'
 import { TfiLock } from 'react-icons/tfi'
@@ -54,10 +56,7 @@ export function SignUp() {
         ></Input>
         <Button title="Criar conta" />
 
-        <a href="">
-          <link href="" />
-          CRIAR CONTA
-        </a>
+        <Link to="/">Já tenho uma conta</Link>
       </Form>
     </Container>
   )
