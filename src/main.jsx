@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
-import { SignIn } from './pages/SignIn'
+import { Routes } from './routes'
 import GlobalStyles from './styles/global'
 
 import { ToastContainer } from 'react-toastify'
@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     />
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <SignIn />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>,
 )
