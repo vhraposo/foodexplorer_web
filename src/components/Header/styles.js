@@ -25,7 +25,7 @@ const slideOut = keyframes`
 
 export const Container = styled.header`
   grid-area: header;
-  padding: 3rem;
+  padding: 3rem 2rem;
   height: 21.4rem;
   width: 100%;
   margin-bottom: 2.4rem;
@@ -218,11 +218,10 @@ export const Container = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-
     gap: 1rem;
 
     svg {
-      margin-left: 5rem;
+      margin-left: 2rem;
     }
 
     > img {

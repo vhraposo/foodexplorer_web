@@ -30,8 +30,8 @@ export const Container = styled.label`
   }
   > svg {
     position: absolute;
-    top: 13px;
-    left: 10px;
+    top: 3.5rem;
+    left: 1rem;
     font-size: 1.6rem;
   }
 `
