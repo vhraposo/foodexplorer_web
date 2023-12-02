@@ -5,7 +5,7 @@ import { TiMinus, TiPlus } from 'react-icons/ti'
 import { Button } from '../../components/Button'
 import { Container } from './styles'
 
-export function Carousel({ dishes }) {
+export function Carousel({ dishes, title }) {
   const id = crypto.randomUUID()
   const splideRef = useRef(null)
 
@@ -31,7 +31,7 @@ export function Carousel({ dishes }) {
       id={`splide${id}`}
       aria-labelledby="carousel-heading"
     >
-      <h2 id="carousel-heading">Refeições</h2>
+      <h2 id="carousel-heading">{title}</h2>
 
       <div className="splide__track">
         <ul className="splide__list">
