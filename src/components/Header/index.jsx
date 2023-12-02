@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
 import { PiReceiptThin, PiSignOut } from 'react-icons/pi'
+import { toast } from 'react-toastify'
 import logo from '../../assets/logo.svg'
+import { useAuth } from '../../hooks/auth'
 import { Button } from '../Button'
 import { Footer } from '../Footer'
 import { Container, Logout } from './styles'
@@ -12,6 +14,17 @@ export function Header() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const { signOut, userName } = useAuth()
+
+  async function handleSignOut() {
+    try {
+      await signOut()
+      toast.success(`Até mais ${userName} ! 😊`)
+    } catch (error) {
+      toast.error('Não foi possível realizar o logout!')
+    }
   }
 
   return (
@@ -40,7 +53,7 @@ export function Header() {
             title="Pedidos (0)"
           />
           <Logout>
-            <PiSignOut />
+            <PiSignOut onClick={handleSignOut} />
           </Logout>
         </div>
       </div>
@@ -60,10 +73,9 @@ export function Header() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/about">Sobre</a>
-          </li>
-          <li>
-            <a href="/contact">Contato</a>
+            <a onClick={handleSignOut} href="/">
+              Logout
+            </a>
           </li>
         </ul>
         <Footer />

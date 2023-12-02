@@ -7,6 +7,7 @@ import GlobalStyles from './styles/global'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import { AuthProvider } from './hooks/auth'
 import theme from './styles/theme'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -25,7 +26,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     />
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
 )
