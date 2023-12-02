@@ -139,6 +139,11 @@ export const Container = styled.section`
       background-color: ${({ theme }) => theme.COLORS.RED_200};
     }
   }
+  .splide__slide__container__info {
+    p {
+      padding: 1rem 1rem;
+    }
+  }
 
   @keyframes beat {
     0% {
@@ -172,8 +177,14 @@ export const Container = styled.section`
       }
       .splide__slide__container__info {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        p {
+          padding: 1rem 4rem;
+        }
       }
     }
     .splide__list {

@@ -6,6 +6,10 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  button {
+    margin: 0 auto;
+  }
 `
 export const Brand = styled.div`
   grid-area: brand;
