@@ -46,11 +46,7 @@ export function Home() {
 
       <Content>
         {Object.entries(dishes).map(([category, categoryDishes]) => (
-          <Carousel
-            key={category}
-            dishes={categoryDishes.slice(0, 5)}
-            title={category}
-          />
+          <Carousel key={category} dishes={categoryDishes} title={category} />
         ))}
       </Content>
 

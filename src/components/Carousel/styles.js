@@ -18,6 +18,7 @@ export const Container = styled.section`
   .splide__slide {
     max-width: 25.6rem;
     width: 100%;
+    margin-right: 2rem;
   }
   .splide__slide__container {
     display: flex;
@@ -26,8 +27,9 @@ export const Container = styled.section`
     justify-content: center;
 
     background-color: ${({ theme }) => theme.COLORS.DARK_300};
-    width: 21rem;
-    height: 29.2rem;
+    width: 25rem;
+    height: 40rem;
+    text-align: center;
     border-radius: 0.8rem;
 
     transition: ease-in-out 150ms;
@@ -59,11 +61,13 @@ export const Container = styled.section`
     }
 
     & img {
-      width: 10rem;
-      height: 10rem;
+      width: 15rem;
+      height: auto;
+      aspect-ratio: 1/1;
       object-fit: cover;
+      margin-top: 3rem;
 
-      border-radius: 5rem;
+      border-radius: 50%;
       border: 2px solid #324959;
 
       box-shadow:
@@ -166,13 +170,14 @@ export const Container = styled.section`
     justify-content: center;
 
     .splide__slide__container {
-      width: 25.6rem;
-      height: 40rem;
+      width: 27rem;
+      height: 50rem;
       margin-bottom: 2rem;
 
       > img {
         width: 15rem;
         height: 15rem;
+        margin-top: 3rem;
         border-radius: 50%;
       }
       .splide__slide__container__info {
