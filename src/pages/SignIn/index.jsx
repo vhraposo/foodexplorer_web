@@ -13,7 +13,7 @@ export function SignIn() {
   const [isHidden, setIsHidden] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { signIn } = useAuth()
+  const { signIn, userName } = useAuth()
 
   async function handleSignIn() {
     try {
@@ -21,9 +21,8 @@ export function SignIn() {
         toast.error('Preencha todos os campos')
       } else {
         await signIn({ email, password })
-        if (signIn === true) {
-          toast.success('Login realizado com sucesso!')
-        }
+
+        toast.success(`Bem vindo(a) ${userName} !! 😊`)
       }
     } catch (error) {
       toast.error('Não foi possível entrar!')

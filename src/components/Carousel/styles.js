@@ -169,15 +169,20 @@ export const Container = styled.section`
     align-items: center;
     justify-content: center;
 
+    .splide__arrows {
+      display: none;
+    }
+
     .splide__slide__container {
       width: 27rem;
-      height: 50rem;
+      max-height: 50rem;
+      height: 100%;
       margin-bottom: 2rem;
 
       > img {
         width: 15rem;
         height: 15rem;
-        margin-top: 3rem;
+        margin-top: 1rem;
         border-radius: 50%;
       }
       .splide__slide__container__info {
@@ -192,6 +197,7 @@ export const Container = styled.section`
         }
       }
     }
+
     .splide__list {
       display: flex;
       gap: 2.7rem;
