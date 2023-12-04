@@ -4,6 +4,7 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { PiReceiptLight } from 'react-icons/pi'
 import { TiMinus, TiPlus } from 'react-icons/ti'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { Button } from '../../components/Button'
 import { Container } from './styles'
 
@@ -58,6 +59,14 @@ export function Carousel({ dishes, title }) {
     })
   }
 
+  function addToChart() {
+    try {
+      toast.success('Produto adicionado ao carrinho!')
+    } catch (e) {
+      toast.error('Erro ao adicionar produto ao carrinho!')
+    }
+  }
+
   return (
     <Container
       className="splide"
@@ -103,9 +112,10 @@ export function Carousel({ dishes, title }) {
                         <Button
                           icon={PiReceiptLight}
                           title={`pedir ∙ R$ ${updatedPrice}`}
+                          onClick={addToChart}
                         />
                       ) : (
-                        <Button title="Incluir" />
+                        <Button title="Incluir" onClick={addToChart} />
                       )}
                     </div>
                   </div>

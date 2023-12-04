@@ -178,6 +178,7 @@ export const Container = styled.section`
       max-height: 50rem;
       height: 100%;
       margin-bottom: 2rem;
+      margin-left: unset;
 
       > img {
         width: 15rem;
