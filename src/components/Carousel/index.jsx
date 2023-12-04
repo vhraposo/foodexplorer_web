@@ -2,12 +2,14 @@ import Splide from '@splidejs/splide'
 import { useEffect, useRef } from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { TiMinus, TiPlus } from 'react-icons/ti'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Container } from './styles'
 
 export function Carousel({ dishes, title }) {
   const id = crypto.randomUUID()
   const splideRef = useRef(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const splide = new Splide(`#splide${id}`, {
@@ -25,6 +27,9 @@ export function Carousel({ dishes, title }) {
     }
   }, [id, dishes])
 
+  function handleDetails(id) {
+    navigate(`/details/${id}`)
+  }
   return (
     <Container
       className="splide"
@@ -39,7 +44,11 @@ export function Carousel({ dishes, title }) {
             <li className="splide__slide" key={dish.id}>
               <div className="splide__slide__container">
                 <AiOutlineHeart />
-                <img src={dish.image} alt={dish.name} />
+                <img
+                  src={dish.image}
+                  alt={dish.name}
+                  onClick={handleDetails.bind(id, dish.id)}
+                />
                 <div className="splide__slide__container__info">
                   <h3>{dish.name}</h3>
                   <p>{dish.description}</p>
