@@ -12,6 +12,7 @@ export function Carousel({ dishes, title }) {
   const splideRef = useRef(null)
   const navigate = useNavigate()
   const [counts, setCounts] = useState({})
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const splide = new Splide(`#splide${id}`, {
@@ -22,16 +23,24 @@ export function Carousel({ dishes, title }) {
 
     splideRef.current = splide
 
+    window.addEventListener('resize', () => {
+      setIsMobile(window.innerWidth < 700)
+    })
+
     return () => {
       if (splideRef.current) {
         splideRef.current.destroy()
       }
+      window.removeEventListener('resize', () =>
+        setIsMobile(window.innerWidth > 700),
+      )
     }
   }, [id, dishes])
 
   function handleDetails(id) {
     navigate(`/details/${id}`)
   }
+
   const handleIncrement = (dishId) => {
     setCounts((prevCounts) => ({
       ...prevCounts,
@@ -48,6 +57,7 @@ export function Carousel({ dishes, title }) {
       }
     })
   }
+
   return (
     <Container
       className="splide"
@@ -89,12 +99,15 @@ export function Carousel({ dishes, title }) {
                           onClick={() => handleIncrement(dishId)}
                         />
                       </div>
-                      <Button
-                        icon={PiReceiptLight}
-                        title={`pedir ∙ R$ ${updatedPrice}`}
-                      />
+                      {isMobile ? (
+                        <Button
+                          icon={PiReceiptLight}
+                          title={`pedir ∙ R$ ${updatedPrice}`}
+                        />
+                      ) : (
+                        <Button title="Incluir" />
+                      )}
                     </div>
-                    <Button title="Incluir" />
                   </div>
                 </div>
               </li>
