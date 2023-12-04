@@ -8,9 +8,7 @@ export function Details() {
   return (
     <Container>
       <Header />
-
-      <Section title="Salada Ravanello" />
-
+      <Section />
       <Footer />
     </Container>
   )

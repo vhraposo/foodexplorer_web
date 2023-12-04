@@ -1,27 +1,28 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  margin: 3.6rem 3rem;
+  margin: 5rem auto;
 
-  > .backdiv {
+  .backdiv {
     width: fit-content;
     font-size: 24px;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 5px;
-
     margin-left: 0.5px;
+  }
 
-    > svg {
-      width: 3.2rem;
-      height: 3.2rem;
+  .backdiv svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
 
-      cursor: pointer;
-    }
-
-    &hover {
-    }
+  .backdiv:hover svg {
+    transform: rotate(-360deg);
+    scale: 1.2;
   }
   > .backdiv h2 {
     border-bottom-width: 1px;
@@ -51,6 +52,8 @@ export const Container = styled.section`
     > img {
       width: clamp(26.4rem, 21.883rem + 11.887vw, 39rem);
       margin-top: 8rem;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
     }
   }
 
@@ -97,7 +100,7 @@ export const Container = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-
+    user-select: none;
     margin-top: 4.8rem;
 
     gap: 1.5rem;
