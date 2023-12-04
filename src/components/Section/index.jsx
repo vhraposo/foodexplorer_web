@@ -12,6 +12,7 @@ export function Section({ title, children }) {
   const [count, setCount] = useState(1)
   const { name, description, price, image, ingredients } = data ?? {}
   const updatedPrice = (price * count).toFixed(2)
+
   const navigate = useNavigate()
 
   useEffect(() => {
