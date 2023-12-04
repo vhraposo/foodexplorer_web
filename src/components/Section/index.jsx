@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { PiArrowArcLeftDuotone, PiReceiptLight } from 'react-icons/pi'
 import { TiMinus, TiPlus } from 'react-icons/ti'
 import { useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { Button } from '../../components/Button'
 import { api } from '../../services/api'
 import { Container } from './styles'
@@ -39,6 +40,18 @@ export function Section({ title, children }) {
       setCount(newCount)
     }
   }
+  function addToChart() {
+    try {
+      if (count > 1) {
+        toast.success('Os produtos foram adicionados ao carrinho!')
+      } else {
+        toast.success('O Produto adicionado ao carrinho!')
+      }
+    } catch (e) {
+      toast.error('Erro ao adicionar ao carrinho!')
+    }
+  }
+
   return (
     <Container>
       <div className="backdiv" title="voltar">
@@ -75,6 +88,7 @@ export function Section({ title, children }) {
               <Button
                 icon={PiReceiptLight}
                 title={`pedir ∙ R$ ${updatedPrice}`}
+                onClick={addToChart}
               />
             </div>
           </div>

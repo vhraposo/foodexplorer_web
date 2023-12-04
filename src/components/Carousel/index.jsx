@@ -61,7 +61,13 @@ export function Carousel({ dishes, title }) {
 
   function addToChart() {
     try {
-      toast.success('Produto adicionado ao carrinho!')
+      const totalProducts = Object.values(counts).reduce(
+        (acc, count) => acc + count,
+        0,
+      )
+      const plural = totalProducts > 1 ? 's' : ''
+
+      toast.success(`Produto${plural} adicionado${plural} ao carrinho!`)
     } catch (e) {
       toast.error('Erro ao adicionar produto ao carrinho!')
     }
