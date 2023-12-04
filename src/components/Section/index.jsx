@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { PiArrowArcLeftDuotone, PiReceiptLight } from 'react-icons/pi'
 import { TiMinus, TiPlus } from 'react-icons/ti'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { api } from '../../services/api'
 import { Container } from './styles'
@@ -11,8 +11,8 @@ export function Section({ title, children }) {
   const [data, setData] = useState(null)
   const [count, setCount] = useState(1)
   const { name, description, price, image, ingredients } = data ?? {}
-  const formattedPrice = `R$ ${price ? price.toFixed(2) : '0.00'}`
   const updatedPrice = (price * count).toFixed(2)
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchDish() {
@@ -22,6 +22,10 @@ export function Section({ title, children }) {
 
     fetchDish()
   }, [])
+
+  function handleBack() {
+    navigate(-1)
+  }
 
   const handleIncrement = () => {
     handleUpdateCount(count + 1)
@@ -37,7 +41,7 @@ export function Section({ title, children }) {
   return (
     <Container>
       <div className="backdiv" title="voltar">
-        <PiArrowArcLeftDuotone />
+        <PiArrowArcLeftDuotone onClick={handleBack} />
         Voltar
       </div>
       <div className="page-wrapper">
