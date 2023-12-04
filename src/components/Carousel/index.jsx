@@ -14,6 +14,7 @@ export function Carousel({ dishes, title }) {
   const navigate = useNavigate()
   const [counts, setCounts] = useState({})
   const [isMobile, setIsMobile] = useState(false)
+  const [isMobile2, setIsMobile2] = useState(false)
 
   useEffect(() => {
     const splide = new Splide(`#splide${id}`, {
@@ -25,7 +26,7 @@ export function Carousel({ dishes, title }) {
     splideRef.current = splide
 
     window.addEventListener('resize', () => {
-      setIsMobile(window.innerWidth < 700)
+      setIsMobile2(window.innerWidth < 700)
     })
 
     return () => {
@@ -114,7 +115,7 @@ export function Carousel({ dishes, title }) {
                           onClick={() => handleIncrement(dishId)}
                         />
                       </div>
-                      {isMobile ? (
+                      {isMobile2 ? (
                         <Button
                           icon={PiReceiptLight}
                           title={`pedir ∙ R$ ${updatedPrice}`}
