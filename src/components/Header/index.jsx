@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
 import { PiReceiptThin, PiSignOut } from 'react-icons/pi'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import logo from '../../assets/logo.svg'
 import { useAuth } from '../../hooks/auth'
@@ -17,10 +18,12 @@ export function Header() {
   }
 
   const { signOut, userName } = useAuth()
+  const navigate = useNavigate()
 
   async function handleSignOut() {
     try {
       await signOut()
+      navigate('/')
       toast.success(`Até mais ${userName} ! 😊`)
     } catch (error) {
       toast.error('Não foi possível realizar o logout!')
