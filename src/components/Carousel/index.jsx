@@ -1,18 +1,13 @@
 import Splide from '@splidejs/splide'
 import { useEffect, useRef, useState } from 'react'
-import { AiOutlineHeart } from 'react-icons/ai'
-import { PiReceiptLight } from 'react-icons/pi'
-import { TiMinus, TiPlus } from 'react-icons/ti'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { Button } from '../../components/Button'
+import { Card } from '../Card'
 import { Container } from './styles'
 
-export function Carousel({ dishes, title }) {
+export const Carousel = ({ dishes, title }) => {
   const id = crypto.randomUUID()
   const splideRef = useRef(null)
   const navigate = useNavigate()
-  const [counts, setCounts] = useState({})
   const [isMobile, setIsMobile] = useState(false)
   const [isMobile2, setIsMobile2] = useState(false)
 
@@ -43,37 +38,6 @@ export function Carousel({ dishes, title }) {
     navigate(`/details/${id}`)
   }
 
-  const handleIncrement = (dishId) => {
-    setCounts((prevCounts) => ({
-      ...prevCounts,
-      [dishId]: (prevCounts[dishId] || 0) + 1,
-    }))
-  }
-
-  const handleDecrement = (dishId) => {
-    setCounts((prevCounts) => {
-      const newCount = (prevCounts[dishId] || 0) - 1
-      return {
-        ...prevCounts,
-        [dishId]: newCount >= 1 ? newCount : 1,
-      }
-    })
-  }
-
-  function addToChart() {
-    try {
-      const totalProducts = Object.values(counts).reduce(
-        (acc, count) => acc + count,
-        0,
-      )
-      const plural = totalProducts > 1 ? 's' : ''
-
-      toast.success(`Produto${plural} adicionado${plural} ao carrinho!`)
-    } catch (e) {
-      toast.error('Erro ao adicionar produto ao carrinho!')
-    }
-  }
-
   return (
     <Container
       className="splide"
@@ -84,52 +48,14 @@ export function Carousel({ dishes, title }) {
 
       <div className="splide__track">
         <ul className="splide__list">
-          {dishes.map((dish) => {
-            const dishId = dish.id
-            const count = counts[dishId] || 1
-            const updatedPrice = (dish.price * count).toFixed(2)
-
-            return (
-              <li className="splide__slide" key={dishId}>
-                <div className="splide__slide__container">
-                  <AiOutlineHeart />
-                  <img
-                    src={dish.image}
-                    alt={dish.name}
-                    onClick={() => handleDetails(dishId)}
-                  />
-                  <div className="splide__slide__container__info">
-                    <h3>{dish.name}</h3>
-                    <p>{dish.description}</p>
-                    <h1>R$ {dish.price}</h1>
-
-                    <div className="inputstepper">
-                      <div className="input-stepper-child">
-                        <TiMinus
-                          className="cursor-hability-pointer"
-                          onClick={() => handleDecrement(dishId)}
-                        />
-                        <span id="count">{count}</span>
-                        <TiPlus
-                          className="cursor-hability-pointer"
-                          onClick={() => handleIncrement(dishId)}
-                        />
-                      </div>
-                      {isMobile2 ? (
-                        <Button
-                          icon={PiReceiptLight}
-                          title={`pedir ∙ R$ ${updatedPrice}`}
-                          onClick={addToChart}
-                        />
-                      ) : (
-                        <Button title="Incluir" onClick={addToChart} />
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </li>
-            )
-          })}
+          {dishes.map((dish) => (
+            <Card
+              key={dish.id}
+              dish={dish}
+              handleDetails={handleDetails}
+              isMobile2={isMobile2}
+            />
+          ))}
         </ul>
       </div>
     </Container>
