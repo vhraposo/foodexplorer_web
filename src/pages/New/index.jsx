@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { LuUpload } from 'react-icons/lu'
 import { PiArrowArcLeftDuotone } from 'react-icons/pi'
 import { Button } from '../../components/Button'
@@ -6,16 +7,63 @@ import { Header } from '../../components/Header'
 import { Input } from '../../components/Input'
 
 import { toast } from 'react-toastify'
+import { IngredientTag } from '../../components/IngredientTag'
+import { api } from '../../services/api'
 import {
   ButtonsWrapper,
   Container,
   Form,
   InputFile,
   InputWrapper,
-  TagsWrapper,
 } from './styles'
 
 export function New() {
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+
+  const [image, setImage] = useState('')
+
+  const [price, setPrice] = useState([])
+  const [category, setCategory] = useState([''])
+
+  const [ingredients, setIngredients] = useState([])
+  const [newIngredient, setNewIngredient] = useState([''])
+
+  async function handleAddNewDish() {
+    if (!name) {
+      toast.error('O campo name é obrigatório!')
+    } else if (!description) {
+      toast.error('O campo description é obrigatório!')
+    } else if (!image) {
+      toast.error('O campo image é obrigatório!')
+    } else if (!price) {
+      toast.error('O campo price é obrigatório!')
+    } else if (!category) {
+      toast.error('O campo category é obrigatório!')
+    } else if (!ingredients) {
+      toast.error('O campo ingredients é obrigatório!')
+    }
+    await api.post('/dishes', {
+      name,
+      description,
+      image,
+      price,
+      category,
+      ingredients,
+    })
+  }
+
+  function handleAddIngredient() {
+    if (!newIngredient) return
+
+    setIngredients([...ingredients, newIngredient])
+    setNewIngredient('')
+  }
+  function handleDeleteIngredient(ingredient) {
+    setIngredients((prevState) =>
+      prevState.filter((item) => item !== ingredient),
+    )
+  }
   return (
     <Container>
       <Header />
@@ -47,16 +95,37 @@ export function New() {
                 <option value="" disabled selected>
                   Selecione a categoria
                 </option>
+                <option value="">Bebidas</option>
+                <option value="">Massas</option>
+                <option value="">Sobremesas</option>
               </select>
             </InputWrapper>
           </div>
           <div>
-            <InputWrapper>
-              <label>Ingredientes</label>
-              <TagsWrapper className="ingredients-input">
-                <Input placeholder="Adicionar" isNew={true} />
-              </TagsWrapper>
+            <InputWrapper className="ingredient-wrapper">
+              <label htmlFor="ingredient">Ingredientes</label>
+              <div>
+                {ingredients.map((ingredient, index) => (
+                  <IngredientTag
+                    key={index}
+                    value={ingredient}
+                    onClick={() => handleDeleteIngredient(ingredient)}
+                    style={{ width: `${ingredient.length / 1.15}rem` }}
+                  />
+                ))}
+
+                <IngredientTag
+                  id="ingredient"
+                  isNew={true.toString()}
+                  placeholder="Adicionar"
+                  value={newIngredient}
+                  onChange={(event) => setNewIngredient(event.target.value)}
+                  onClick={handleAddIngredient}
+                  style={{ width: `${newIngredient.length / 1.15}rem` }}
+                />
+              </div>
             </InputWrapper>
+
             <InputWrapper>
               <label>Preço</label>
               <Input value="25.00" dark={false} placeholder="R$ 00,00" />

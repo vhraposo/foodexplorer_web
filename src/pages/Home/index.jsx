@@ -12,6 +12,7 @@ export function Home() {
   const [dishes, setDishes] = useState({
     massas: [],
     bebidas: [],
+    sobremesas: [],
   })
 
   useEffect(() => {

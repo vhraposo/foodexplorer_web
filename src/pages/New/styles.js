@@ -91,6 +91,33 @@ export const Form = styled.form`
   .ingredients-input {
     padding: 3.8px;
   }
+  .ingredient-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    > label {
+      font-family: 'Roboto';
+      width: fit-content;
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      padding: 0.8rem 1rem;
+      border-radius: 0.8rem;
+      background: ${({ theme }) => theme.COLORS.DARK_800};
+
+      transition: 0.2s;
+
+      &:has(input:focus) {
+        background: ${({ theme }) => theme.COLORS.DARK_900};
+      }
+    }
+  }
 
   @media (min-width: 700px) {
     gap: 3.2rem;
