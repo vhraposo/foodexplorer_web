@@ -56,7 +56,7 @@ export const Container = styled.div`
     font-family: Roboto;
     min-width: 8rem;
     max-width: 20rem;
-    max-height: 2.5rem;
+    max-height: 1.5rem;
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.LIGHT_500};
