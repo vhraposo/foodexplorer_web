@@ -40,7 +40,6 @@ export function Home() {
       try {
         const response = await api.get(`/dishes?name=${search}`)
         const categorizedDishes = response.data.reduce((acc, dish) => {
-          console.log(response.data)
           if (!acc[dish.category]) {
             acc[dish.category] = []
           }

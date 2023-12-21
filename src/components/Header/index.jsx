@@ -71,7 +71,12 @@ export function Header({ onChange, ...rest }) {
         </div>
         <div className="input-search">
           <BsSearch />
-          <input type="text" placeholder="Busque por pratos ou ingredientes" />
+          <input
+            type="text"
+            placeholder="Busque por pratos ou ingredientes"
+            onChange={onChange}
+            {...rest}
+          />
         </div>
 
         <ul>
