@@ -14,12 +14,33 @@ export function Home() {
     bebidas: [],
     sobremesas: [],
   })
+  const [search, setSearch] = useState('')
+
+  // useEffect(() => {
+  //   async function loadDishes() {
+  //     try {
+  //       const response = await api.get('/dishes', {})
+  //       const categorizedDishes = response.data.reduce((acc, dish) => {
+  //         if (!acc[dish.category]) {
+  //           acc[dish.category] = []
+  //         }
+  //         acc[dish.category].push(dish)
+  //         return acc
+  //       }, {})
+  //       setDishes(categorizedDishes)
+  //     } catch (error) {
+  //       console.error('Error fetching dishes:', error)
+  //     }
+  //   }
+  //   loadDishes()
+  // }, [])
 
   useEffect(() => {
-    async function loadDishes() {
+    async function fetchDishes() {
       try {
-        const response = await api.get('/dishes', {})
+        const response = await api.get(`/dishes?name=${search}`)
         const categorizedDishes = response.data.reduce((acc, dish) => {
+          console.log(response.data)
           if (!acc[dish.category]) {
             acc[dish.category] = []
           }
@@ -31,12 +52,12 @@ export function Home() {
         console.error('Error fetching dishes:', error)
       }
     }
-    loadDishes()
-  }, [])
+    fetchDishes()
+  }, [search])
 
   return (
     <Container>
-      <Header />
+      <Header onChange={(e) => setSearch(e.target.value)} />
       <Brand>
         <img src={macaronsbrand} alt="" />
         <div>
@@ -46,8 +67,8 @@ export function Home() {
       </Brand>
 
       <Content>
-        {Object.entries(dishes).map(([category, categoryDishes]) => (
-          <Carousel key={category} dishes={categoryDishes} title={category} />
+        {Object.entries(dishes).map(([category, dishesByCategory]) => (
+          <Carousel key={category} dishes={dishesByCategory} title={category} />
         ))}
       </Content>
 

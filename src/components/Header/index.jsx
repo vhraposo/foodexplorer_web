@@ -10,8 +10,9 @@ import { Button } from '../Button'
 import { Footer } from '../Footer'
 import { Container, Logout } from './styles'
 
-export function Header() {
+export function Header({ onChange, ...rest }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [search, setSearch] = useState('')
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -47,6 +48,8 @@ export function Header() {
             className="hidden"
             type="text"
             placeholder="Busque por pratos ou ingredientes"
+            onChange={onChange}
+            {...rest}
           />
         </div>
         <div className="orders-logout hidden">
