@@ -34,9 +34,16 @@ export function Home() {
   //   }
   //   loadDishes()
   // }, [])
+  const debounce = (fn, delay = 500) => {
+    let timeoutId
+    return (...args) => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => fn(...args), delay)
+    }
+  }
 
   useEffect(() => {
-    async function fetchDishes() {
+    const debouncedFetchDishes = debounce(async () => {
       try {
         const response = await api.get(`/dishes?name=${search}`)
         const categorizedDishes = response.data.reduce((acc, dish) => {
@@ -50,8 +57,9 @@ export function Home() {
       } catch (error) {
         console.error('Error fetching dishes:', error)
       }
-    }
-    fetchDishes()
+    })
+
+    debouncedFetchDishes()
   }, [search])
 
   return (
