@@ -1,18 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
+import { FaUser } from 'react-icons/fa'
 import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
 import { PiReceiptThin, PiSignOut } from 'react-icons/pi'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import logo from '../../assets/logo.svg'
 import { useAuth } from '../../hooks/auth'
+import { api } from '../../services/api'
 import { Button } from '../Button'
 import { Footer } from '../Footer'
 import { Container, Logout } from './styles'
 
+const Profile = ({ userImage }) => (
+  <div className="profile">
+    {userImage ? (
+      <img src={userImage} alt="User" className="profile-image" />
+    ) : (
+      <FaUser className="default-profile-icon" />
+    )}
+  </div>
+)
+
 export function Header({ onChange, ...rest }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [search, setSearch] = useState('')
+  const [userImage, setUserImage] = useState(null)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -20,6 +32,22 @@ export function Header({ onChange, ...rest }) {
 
   const { signOut, userName } = useAuth()
   const navigate = useNavigate()
+  const userId = JSON.parse(localStorage.getItem('@foodexplorer:user')).id
+
+  useEffect(() => {
+    const fetchUserProfileImage = async () => {
+      try {
+        const response = await api.get(`/users/${userId}`)
+        const user = response.data
+
+        setUserImage(user.avatar)
+      } catch (error) {
+        console.error('Erro ao obter os detalhes do usuário:', error)
+      }
+    }
+
+    fetchUserProfileImage()
+  }, [])
 
   async function handleSignOut() {
     try {
@@ -61,6 +89,7 @@ export function Header({ onChange, ...rest }) {
           <Logout>
             <PiSignOut onClick={handleSignOut} />
           </Logout>
+          <Profile userImage={userImage}></Profile>
         </div>
       </div>
 

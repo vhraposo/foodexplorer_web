@@ -61,6 +61,7 @@ export const Container = styled.header`
     header {
       width: 100%;
     }
+
     .heading-one {
       display: flex;
       justify-content: space-between;
@@ -75,6 +76,31 @@ export const Container = styled.header`
       }
       > input {
         display: initial;
+      }
+    }
+
+    .profile {
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 50%;
+      width: 5.8rem;
+      height: 5.8rem;
+      border: 2px solid ${({ theme }) => theme.COLORS.RED_100};
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: ${({ theme }) => theme.COLORS.LIGHT_300};
       }
     }
 
