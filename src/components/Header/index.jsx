@@ -87,6 +87,13 @@ export function Header({ onChange, ...rest }) {
             className="orders-button"
             icon={PiReceiptThin}
             title={isAdmin ? 'Criar Prato' : 'Pedidos'}
+            onClick={() => {
+              if (isAdmin) {
+                navigate('/new')
+              } else {
+                navigate('/orders')
+              }
+            }}
           ></Button>
           <Logout>
             <PiSignOut onClick={handleSignOut} />
