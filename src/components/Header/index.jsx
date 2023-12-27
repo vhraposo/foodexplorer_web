@@ -22,6 +22,8 @@ const Profile = ({ userImage }) => (
   </div>
 )
 
+const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).admin
+
 export function Header({ onChange, ...rest }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [userImage, setUserImage] = useState(null)
@@ -30,7 +32,7 @@ export function Header({ onChange, ...rest }) {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const { signOut, userName } = useAuth()
+  const { signOut, userName, isAdmin } = useAuth()
   const navigate = useNavigate()
   const userId = JSON.parse(localStorage.getItem('@foodexplorer:user')).id
 
@@ -84,11 +86,12 @@ export function Header({ onChange, ...rest }) {
           <Button
             className="orders-button"
             icon={PiReceiptThin}
-            title="Pedidos (0)"
-          />
+            title={isAdmin ? 'Criar Prato' : 'Pedidos'}
+          ></Button>
           <Logout>
             <PiSignOut onClick={handleSignOut} />
           </Logout>
+
           <Profile userImage={userImage}></Profile>
         </div>
       </div>
