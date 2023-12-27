@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { FaUser } from 'react-icons/fa'
 import { GiHamburgerMenu, GiKnifeFork } from 'react-icons/gi'
-import { PiReceiptThin, PiSignOut } from 'react-icons/pi'
+import { PiReceiptThin } from 'react-icons/pi'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import logo from '../../assets/logo.svg'
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
 import { Button } from '../Button'
+import { Dropdown } from '../Dropdown'
 import { Footer } from '../Footer'
-import { Container, Logout } from './styles'
+import { Container } from './styles'
 
 const Profile = ({ userImage }) => (
   <div className="profile">
@@ -22,7 +23,7 @@ const Profile = ({ userImage }) => (
   </div>
 )
 
-const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).admin
+// const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).admin
 
 export function Header({ onChange, ...rest }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -95,11 +96,7 @@ export function Header({ onChange, ...rest }) {
               }
             }}
           ></Button>
-          <Logout>
-            <PiSignOut onClick={handleSignOut} />
-          </Logout>
-
-          <Profile userImage={userImage}></Profile>
+          <Dropdown />
         </div>
       </div>
 

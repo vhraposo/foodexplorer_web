@@ -1,0 +1,60 @@
+
+.menu-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-button{
+    margin-left: auto;
+    cursor: pointer;
+
+}
+.menu.active{
+    opacity: 1;
+    visibility: visible;
+    background-color: #0D1D25;
+    width: 100px;
+    height: 110px;
+    position: absolute;
+    top: 80px;
+    margin-left: -10px;
+    border-radius: 10px;
+    display: flex; 
+    justify-content: left;
+   
+    
+}
+.menu.active ul{
+    margin-top: 10px;
+    
+}
+.menu.active li{
+    padding-bottom: 5px;
+    
+}
+.menu.active a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 10px;
+   
+}
+
+.menu{
+    opacity: 0;
+}
+
+.menu-button .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+   
+  }
+
+.hidden{
+    display: none;
+}
+.profile{
+    display: none;
+}
