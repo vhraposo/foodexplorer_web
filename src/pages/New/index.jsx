@@ -5,6 +5,7 @@ import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Input } from '../../components/Input'
+import { useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify'
 import { IngredientTag } from '../../components/IngredientTag'
@@ -18,6 +19,7 @@ import {
 } from './styles'
 
 export function New() {
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
 
@@ -69,7 +71,12 @@ export function New() {
       <Header />
       <main>
         <div className="backdiv" title="voltar">
-          <PiArrowArcLeftDuotone title="Voltar" />
+          <PiArrowArcLeftDuotone
+            title="Voltar"
+            onClick={() => {
+              navigate('/')
+            }}
+          />
           <h2>Novo prato</h2>
         </div>
 

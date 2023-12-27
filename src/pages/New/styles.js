@@ -25,6 +25,18 @@ export const Container = styled.div`
       cursor: pointer;
     }
   }
+
+  .backdiv svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .backdiv:hover svg {
+    transform: rotate(-360deg);
+    scale: 1.2;
+  }
   > div:nth-child(3) {
     grid-area: footer;
   }
