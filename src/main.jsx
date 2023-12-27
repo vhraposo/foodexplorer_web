@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       draggable
       pauseOnHover
       theme="dark"
-      style={{ fontSize: '2rem', width: '340px' }}
+      style={{ fontSize: '2rem', width: '340px', top: 115 }}
     />
     <ThemeProvider theme={theme}>
       <GlobalStyles />
