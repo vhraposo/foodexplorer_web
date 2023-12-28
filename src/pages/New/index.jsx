@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { LuUpload } from 'react-icons/lu'
 import { PiArrowArcLeftDuotone } from 'react-icons/pi'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Input } from '../../components/Input'
-import { useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify'
 import { IngredientTag } from '../../components/IngredientTag'
@@ -25,8 +25,8 @@ export function New() {
 
   const [image, setImage] = useState('')
 
-  const [price, setPrice] = useState([])
-  const [category, setCategory] = useState([''])
+  const [price, setPrice] = useState('')
+  const [category, setCategory] = useState('')
 
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState([''])
@@ -84,7 +84,7 @@ export function New() {
           <div>
             <InputWrapper>
               <label> Imagem do prato</label>
-              <InputFile>
+              <InputFile onChange={(e) => setImage(e.target.value)}>
                 <label htmlFor="img">
                   {<LuUpload size={24} />}
                   <span>{'Selecione a imagem'} </span>
@@ -94,17 +94,21 @@ export function New() {
             </InputWrapper>
             <InputWrapper>
               <label>Nome</label>
-              <Input dark={false} placeholder="Ex: Salada Ceaser" />
+              <Input
+                dark={false}
+                placeholder="Ex: Salada Ceaser"
+                onChange={(e) => setName(e.target.value)}
+              />
             </InputWrapper>
             <InputWrapper>
               <label>Categoria</label>
-              <select>
+              <select onChange={(e) => setCategory(e.target.value)}>
                 <option value="" disabled selected>
                   Selecione a categoria
                 </option>
-                <option value="">Bebidas</option>
-                <option value="">Massas</option>
-                <option value="">Sobremesas</option>
+                <option value="Bebidas">Bebidas</option>
+                <option value="Massas">Massas</option>
+                <option value="Sobremesas">Sobremesas</option>
               </select>
             </InputWrapper>
           </div>
@@ -135,15 +139,20 @@ export function New() {
 
             <InputWrapper>
               <label>Preço</label>
-              <Input value="25.00" dark={false} placeholder="R$ 00,00" />
+              <Input
+                value="25.00"
+                dark={false}
+                placeholder="R$ 00,00"
+                onChange={(e) => setPrice(e.target.value)}
+              />
             </InputWrapper>
           </div>
           <div>
             <InputWrapper>
               <label>Descrição</label>
               <textarea
-                value=""
                 placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                onChange={(e) => setDescription(e.target.value)}
               />
             </InputWrapper>
 
@@ -151,6 +160,7 @@ export function New() {
               <Button
                 title="Salvar alterações"
                 onClick={() => {
+                  handleAddNewDish()
                   toast.success('Prato cadastrado com sucesso!')
                 }}
               />
