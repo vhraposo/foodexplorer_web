@@ -36,6 +36,8 @@ export function New() {
   function handleChangeImage(event) {
     const file = event.target.files[0]
     setImageFile(file)
+    const imagePreview = URL.createObjectURL(file)
+    setImage(imagePreview)
 
     const reader = new FileReader()
     reader.onload = (e) => {
