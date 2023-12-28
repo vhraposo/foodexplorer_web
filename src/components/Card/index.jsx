@@ -55,7 +55,7 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
         <div className="splide__slide__container__info">
           <h3>{dish.name}</h3>
           <p>{dish.description}</p>
-          <h1>R$ {dish.price}</h1>
+          <h1>{dish.price}</h1>
 
           <div className="inputstepper">
             <div className="input-stepper-child">
