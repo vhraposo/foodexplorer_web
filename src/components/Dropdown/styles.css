@@ -4,6 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100px;
+    height: auto;
 }
 .menu-button{
     margin-left: auto;

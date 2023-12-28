@@ -6,10 +6,6 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-
-  button {
-    margin: 0 auto;
-  }
 `
 export const Brand = styled.div`
   grid-area: brand;
@@ -52,6 +48,7 @@ export const Brand = styled.div`
     margin-inline: auto;
 
     > img {
+      margin-bottom: 3.5rem;
       top: -3rem;
       left: -5rem;
     }

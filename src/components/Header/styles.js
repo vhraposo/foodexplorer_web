@@ -36,6 +36,10 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
 
+  .heading-one {
+    margin: 0 50px;
+  }
+
   button {
     background-color: transparent;
     border: none;
