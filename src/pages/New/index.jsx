@@ -46,19 +46,6 @@ export function New() {
   }
 
   async function handleAddNewDish() {
-    if (!name) {
-      toast.error('O campo name é obrigatório!')
-    } else if (!description) {
-      toast.error('O campo description é obrigatório!')
-    } else if (!image) {
-      toast.error('O campo image é obrigatório!')
-    } else if (!price) {
-      toast.error('O campo price é obrigatório!')
-    } else if (!category) {
-      toast.error('O campo category é obrigatório!')
-    } else if (!ingredients) {
-      toast.error('O campo ingredients é obrigatório!')
-    }
     await api.post('/dishes', {
       name,
       description,
