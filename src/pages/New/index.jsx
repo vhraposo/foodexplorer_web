@@ -24,12 +24,21 @@ export function New() {
   const [description, setDescription] = useState('')
 
   const [image, setImage] = useState('')
+  const [imageFile, setImageFile] = useState(null)
 
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState('')
 
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState([''])
+
+  function handleChangeImage(event) {
+    const file = event.target.files[0]
+    setImageFile(file)
+
+    const imagePreview = URL.createObjectURL(file)
+    setImage(imagePreview)
+  }
 
   async function handleAddNewDish() {
     if (!name) {
@@ -84,7 +93,7 @@ export function New() {
           <div>
             <InputWrapper>
               <label> Imagem do prato</label>
-              <InputFile onChange={(e) => setImage(e.target.value)}>
+              <InputFile onChange={handleChangeImage}>
                 <label htmlFor="img">
                   {<LuUpload size={24} />}
                   <span>{'Selecione a imagem'} </span>
