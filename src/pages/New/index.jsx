@@ -25,6 +25,7 @@ export function New() {
 
   const [image, setImage] = useState('')
   const [imageFile, setImageFile] = useState(null)
+  const [imagePreview, setImagePreview] = useState('')
 
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState('')
@@ -36,8 +37,12 @@ export function New() {
     const file = event.target.files[0]
     setImageFile(file)
 
-    const imagePreview = URL.createObjectURL(file)
-    setImage(imagePreview)
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      setImagePreview(e.target.result)
+      toast.success('Imagem carregada com sucesso!')
+    }
+    reader.readAsDataURL(file)
   }
 
   async function handleAddNewDish() {
@@ -96,9 +101,22 @@ export function New() {
               <InputFile onChange={handleChangeImage}>
                 <label htmlFor="img">
                   {<LuUpload size={24} />}
-                  <span>{'Selecione a imagem'} </span>
+                  <span>Selecione a imagem</span>
                   <input type="file" id="img" />
                 </label>
+                {imagePreview && (
+                  <img
+                    src={imagePreview}
+                    alt="Image preview"
+                    style={{
+                      width: '120px',
+                      height: '120px',
+                      borderRadius: '10px',
+                      marginTop: '-16rem',
+                      marginLeft: '10rem',
+                    }}
+                  />
+                )}
               </InputFile>
             </InputWrapper>
             <InputWrapper>
@@ -106,7 +124,9 @@ export function New() {
               <Input
                 dark={false}
                 placeholder="Ex: Salada Ceaser"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  setName(e.target.value)
+                }}
               />
             </InputWrapper>
             <InputWrapper>
