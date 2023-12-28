@@ -96,8 +96,10 @@ export const Container = styled.section`
 
     .inputstepper {
       width: 100%;
-      margin-top: 1rem;
-      gap: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
 
       > svg {
         font-size: clamp(0.625rem, 0.401rem + 0.59vw, 1.25rem);

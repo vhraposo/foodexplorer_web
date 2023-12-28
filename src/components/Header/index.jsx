@@ -71,7 +71,7 @@ export function Header({ onChange, ...rest }) {
         <div className="logo">
           <img src={logo} alt="Logo" />
           <span>food explorer</span>
-          <Button className="receipt-icon" title="0" icon={PiReceiptThin} />
+          <Button className="receipt-icon" icon={PiReceiptThin} />
         </div>
         <div className="input-search ">
           <BsSearch className="hidden" />
@@ -119,6 +119,11 @@ export function Header({ onChange, ...rest }) {
           <li>
             <a href="/">Home</a>
           </li>
+          {isAdmin && (
+            <li>
+              <a href="/new">Criar prato</a>
+            </li>
+          )}
           <li>
             <a onClick={handleSignOut} href="/">
               Logout
