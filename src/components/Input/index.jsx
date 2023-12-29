@@ -1,6 +1,6 @@
 import { Container } from './styles.js'
 
-export function Input({ label, value, icon: Icon, ...rest }) {
+export function Input({ label, icon: Icon, ...rest }) {
   return (
     <Container>
       {label}
