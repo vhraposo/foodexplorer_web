@@ -14,7 +14,6 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
   const [dishName, setDishName] = useState('')
 
   const handleEdit = async (dishId) => {
-    console.log(`dish id é ${dish.id}`)
     try {
       const response = await api.get(`/dishes/${dishId}`)
       const dishDetails = response.data

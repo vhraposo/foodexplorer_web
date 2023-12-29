@@ -74,7 +74,6 @@ export function Edit() {
   const { id } = useParams()
 
   useEffect(() => {
-    console.log(`o dishId que chegou no edit é ${id}`)
     const fetchData = async () => {
       try {
         const response = await api.get(`/dishes/${id}`)
@@ -82,7 +81,7 @@ export function Edit() {
         setDishDetails(dish)
         setName(dish.name)
         setDescription(dish.description)
-        setImage(dish.image)
+        setImage(dish.image ? dish.image : null)
         setPrice(dish.price)
         setCategory(dish.category)
         setIngredients(dish.ingredients)
