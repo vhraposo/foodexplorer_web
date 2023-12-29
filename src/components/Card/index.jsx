@@ -6,10 +6,21 @@ import { TiMinus, TiPlus } from 'react-icons/ti'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button } from '../../components/Button'
+import { api } from '../../services/api'
 
 export const Card = ({ dish, handleDetails, isMobile2 }) => {
   const [count, setCount] = useState(1)
   const navigate = useNavigate()
+
+  const handleEdit = async (dishId) => {
+    try {
+      const response = await api.get(`/dishes/${dishId}`)
+      const dishDetails = response.data
+      navigate(`/edit-dish/${dishId}`, { state: { dishDetails } })
+    } catch (error) {
+      toast.error('Erro ao carregar os dados do prato!')
+    }
+  }
 
   function handleIncrement() {
     if (count < 15) {
@@ -51,7 +62,7 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
     <li className="splide__slide" key={dish.id}>
       <div className="splide__slide__container">
         {isAdmin ? (
-          <FiEdit2 onClick={() => handleDetails(dish.id)} />
+          <FiEdit2 onClick={() => navigate('/edit')} />
         ) : (
           <AiOutlineHeart onClick={handleFavorite} />
         )}
