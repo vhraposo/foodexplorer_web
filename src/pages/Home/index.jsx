@@ -16,24 +16,6 @@ export function Home() {
   })
   const [search, setSearch] = useState('')
 
-  // useEffect(() => {
-  //   async function loadDishes() {
-  //     try {
-  //       const response = await api.get('/dishes', {})
-  //       const categorizedDishes = response.data.reduce((acc, dish) => {
-  //         if (!acc[dish.category]) {
-  //           acc[dish.category] = []
-  //         }
-  //         acc[dish.category].push(dish)
-  //         return acc
-  //       }, {})
-  //       setDishes(categorizedDishes)
-  //     } catch (error) {
-  //       console.error('Error fetching dishes:', error)
-  //     }
-  //   }
-  //   loadDishes()
-  // }, [])
   const debounce = (fn, delay = 500) => {
     let timeoutId
     return (...args) => {

@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
+import { FiEdit2 } from 'react-icons/fi'
 import { PiReceiptLight } from 'react-icons/pi'
 import { TiMinus, TiPlus } from 'react-icons/ti'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button } from '../../components/Button'
 
 export const Card = ({ dish, handleDetails, isMobile2 }) => {
   const [count, setCount] = useState(1)
+  const navigate = useNavigate()
 
   function handleIncrement() {
     if (count < 15) {
@@ -42,11 +45,17 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
       toast.error('Erro ao adicionar produto aos favoritos!')
     }
   }
+  const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).isAdmin
 
   return (
     <li className="splide__slide" key={dish.id}>
       <div className="splide__slide__container">
-        <AiOutlineHeart onClick={handleFavorite} />
+        {isAdmin ? (
+          <FiEdit2 onClick={() => handleDetails(dish.id)} />
+        ) : (
+          <AiOutlineHeart onClick={handleFavorite} />
+        )}
+
         <img
           src={dish.image}
           alt={dish.name}
