@@ -87,7 +87,7 @@ export function Section({ title, children }) {
               </div>
               <Button
                 icon={PiReceiptLight}
-                title={`pedir ∙ R$ ${updatedPrice}`}
+                title={`pedir ∙ ${price}`}
                 onClick={addToChart}
               />
             </div>
