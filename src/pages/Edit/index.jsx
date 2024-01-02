@@ -48,11 +48,19 @@ export function Edit() {
     reader.readAsDataURL(file)
   }
 
+  function handleIngredients() {
+    toast.success('Ingrediente adicionado com sucesso!')
+    toast.warn(
+      'O ingrediente foi enviado para aprovação e deverá aparecer na tela',
+    )
+  }
+
   function handleAddIngredient() {
     if (!newIngredient) return
 
     setIngredients([...ingredients, newIngredient])
     setNewIngredient('')
+    handleIngredients()
   }
   function handleDeleteIngredient(ingredient) {
     setIngredients((prevState) =>
@@ -179,7 +187,7 @@ export function Edit() {
                 {ingredients.map((ingredient, index) => (
                   <IngredientTag
                     key={index}
-                    value={ingredient}
+                    value={ingredient.name}
                     onClick={() => handleDeleteIngredient(ingredient)}
                     style={{ width: `${ingredient.length / 1.15}rem` }}
                   />
