@@ -12,7 +12,7 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
   const [count, setCount] = useState(1)
   const navigate = useNavigate()
   const [dishName, setDishName] = useState('')
-
+  const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).isAdmin
   const handleEdit = async (dishId) => {
     try {
       const response = await api.get(`/dishes/${dishId}`)
@@ -27,14 +27,18 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
   function handleIncrement() {
     if (count < 15) {
       setCount(count + 1)
+    } else {
+      toast.error('Limite de 15 pratos por pedido!')
     }
   }
   function handleDecrement() {
     if (count > 1) {
       setCount(count - 1)
+    } else {
+      toast.error('Mínimo de 1 prato por pedido!')
     }
   }
-  const updatedPrice = (dish.price * count).toFixed(2)
+  const updatedPrice = (dish * count).toFixed(2)
 
   function addToChart() {
     try {
@@ -58,7 +62,6 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
       toast.error('Erro ao adicionar produto aos favoritos!')
     }
   }
-  const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).isAdmin
 
   return (
     <li className="splide__slide" key={dish.id}>
