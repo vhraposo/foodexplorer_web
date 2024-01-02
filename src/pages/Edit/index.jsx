@@ -20,6 +20,7 @@ import {
 
 export function Edit() {
   const navigate = useNavigate()
+  const { id } = useParams()
   const [dishDetails, setDishDetails] = useState({})
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -70,8 +71,6 @@ export function Edit() {
 
     return formattedValue
   }
-
-  const { id } = useParams()
 
   useEffect(() => {
     const fetchData = async () => {
