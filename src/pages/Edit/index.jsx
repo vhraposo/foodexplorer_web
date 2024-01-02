@@ -48,19 +48,11 @@ export function Edit() {
     reader.readAsDataURL(file)
   }
 
-  function handleIngredients() {
-    toast.success('Ingrediente adicionado com sucesso!')
-    toast.warn(
-      'O ingrediente foi enviado para aprovação e deverá aparecer na tela',
-    )
-  }
-
   function handleAddIngredient() {
     if (!newIngredient) return
 
-    setIngredients([...ingredients, newIngredient])
+    setIngredients([...ingredients, { name: newIngredient }])
     setNewIngredient('')
-    handleIngredients()
   }
   function handleDeleteIngredient(ingredient) {
     setIngredients((prevState) =>
@@ -103,13 +95,15 @@ export function Edit() {
 
   const handleSubmit = async () => {
     const formattedPrice = formatCurrency(price)
+    const ingredientNames = ingredients.map((ingredient) => ingredient.name)
+
     await api.put(`/dishes/${dishDetails.id}`, {
       name,
       description,
       image,
       price: formattedPrice,
       category,
-      ingredients,
+      ingredients: ingredientNames,
     })
     toast.success('Prato atualizado com sucesso!')
     navigate('/')
@@ -189,7 +183,7 @@ export function Edit() {
                     key={index}
                     value={ingredient.name}
                     onClick={() => handleDeleteIngredient(ingredient)}
-                    style={{ width: `${ingredient.length / 1.15}rem` }}
+                    style={{ width: `${ingredient.name.length / 1.15}rem` }}
                   />
                 ))}
 
@@ -230,7 +224,6 @@ export function Edit() {
                 title="Salvar alterações"
                 onClick={() => {
                   handleSubmit()
-                  toast.success('Prato atualizado com sucesso!')
                 }}
               />
             </ButtonsWrapper>
