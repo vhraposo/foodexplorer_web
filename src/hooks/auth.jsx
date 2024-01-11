@@ -38,10 +38,40 @@ export function AuthProvider({ children }) {
     setData({})
   }
 
+  async function updateProfile({ user, avatarFile }) {
+    localStorage.getItem('@foodexplorer:user')
+    console.log('user', user.avatar)
+    try {
+      if (avatarFile) {
+        const fileUploadForm = new FormData()
+        fileUploadForm.append('avatar', avatarFile)
+        const response = await api.get(`users/${user.avatar}`, fileUploadForm)
+        user.avatar = response.data.avatar
+      }
+
+      await api.put('/users', user)
+      localStorage.setItem('@foodexplorer:user', JSON.stringify(user))
+
+      setData({ user, token: data.token, userAvatar: user.avatar })
+      toast('Perfil atualizado com sucesso')
+    } catch (error) {
+      if (error.response) {
+        console.error(error.response.data.message)
+      } else {
+        toast('Não foi possível atualizar o perfil')
+      }
+    }
+  }
+
   useEffect(() => {
     const user = localStorage.getItem('@foodexplorer:user')
     const token = localStorage.getItem('@foodexplorer:token')
     const isAdmin = localStorage.getItem('@foodexplorer:isadmin')
+    const userAvatar = localStorage.getItem('@foodexplorer:user')
+      ? JSON.parse(localStorage.getItem('@foodexplorer:user')).avatar
+      : ''
+    setData({ ...data, userAvatar })
+    console.log('@foodexplorer:user.avatar', userAvatar)
 
     if (token && user && isAdmin) {
       api.defaults.headers.common.Authorization = `Bearer ${token}`
@@ -61,7 +91,9 @@ export function AuthProvider({ children }) {
         signOut,
         user: data.user,
         userName: data.user ? data.user.name : '',
+        userAvatar: data.user ? data.user.avatar : '',
         isAdmin: data.isAdmin,
+        updateProfile,
       }}
     >
       {children}
