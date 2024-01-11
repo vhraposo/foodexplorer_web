@@ -99,7 +99,7 @@ export function Edit() {
     await api.put(`/dishes/${dishDetails.id}`, {
       name,
       description,
-      image,
+      image: imagePreview,
       price: formattedPrice,
       category,
       ingredients: ingredientNames,
