@@ -70,17 +70,27 @@ export function New() {
     return formattedValue
   }
   async function handleAddNewDish() {
-    const formattedPrice = formatCurrency(price)
+    try {
+      const formattedPrice = formatCurrency(price)
 
-    await api.post('/dishes', {
-      name,
-      description,
-      image,
-      price: formattedPrice,
+      const formData = new FormData()
+      formData.append('name', name)
+      formData.append('description', description)
+      formData.append('image', imageFile)
+      formData.append('price', formattedPrice)
+      formData.append('category', category)
 
-      category,
-      ingredients,
-    })
+      ingredients.forEach((ingredient, index) => {
+        formData.append(`ingredients[${index}]`, ingredient)
+      })
+
+      await api.post('/dishes', formData)
+
+      toast.success('Prato cadastrado com sucesso!')
+    } catch (error) {
+      console.error(error)
+      toast.error('Erro ao cadastrar o prato.')
+    }
   }
   return (
     <Container>
