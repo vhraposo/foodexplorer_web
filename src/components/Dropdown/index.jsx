@@ -28,6 +28,14 @@ export function Dropdown() {
       toast.error('Não foi possível realizar o logout!')
     }
   }
+
+  async function handleProfile() {
+    try {
+      navigate('/profile/:id')
+    } catch (error) {
+      toast.error('Não foi possível realizar acessar a página de perfil!')
+    }
+  }
   const navigate = useNavigate()
 
   const { signOut, userName, isAdmin } = useAuth()
@@ -72,7 +80,9 @@ export function Dropdown() {
         >
           <ul>
             <li>
-              <a href="#">Perfil</a>
+              <a href="#" onClick={handleProfile}>
+                Perfil
+              </a>
             </li>
             <li>
               <a href="#" onClick={handleSignOut}>
