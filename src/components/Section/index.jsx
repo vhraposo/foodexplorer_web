@@ -45,7 +45,7 @@ export function Section({ title, children }) {
       if (count > 1) {
         toast.success('Os produtos foram adicionados ao carrinho!')
       } else {
-        toast.success('O Produto adicionado ao carrinho!')
+        toast.success('O Produto foi adicionado ao carrinho!')
       }
     } catch (e) {
       toast.error('Erro ao adicionar ao carrinho!')
