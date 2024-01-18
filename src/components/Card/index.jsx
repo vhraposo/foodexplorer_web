@@ -38,7 +38,6 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
       toast.error('Mínimo de 1 prato por pedido!')
     }
   }
-  const updatedPrice = (dish * count).toFixed(2)
 
   function addToChart() {
     try {
@@ -97,7 +96,7 @@ export const Card = ({ dish, handleDetails, isMobile2 }) => {
             {isMobile2 ? (
               <Button
                 icon={PiReceiptLight}
-                title={`pedir ∙ R$ ${updatedPrice}`}
+                title={`pedir ∙ ${dish.price}`}
                 onClick={addToChart}
               />
             ) : (
