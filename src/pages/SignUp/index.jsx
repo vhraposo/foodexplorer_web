@@ -84,7 +84,9 @@ export function SignUp() {
         ></Input>
         <Button title="Criar conta" onClick={handleSignUp} />
 
-        <Link to="/">Já tenho uma conta</Link>
+        <Link to="/" className="haveAccount">
+          Já tenho uma conta
+        </Link>
       </Form>
     </Container>
   )

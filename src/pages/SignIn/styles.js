@@ -11,6 +11,11 @@ export const Container = styled.div`
   .hidden {
     display: none;
   }
+  .createAccount {
+    color: white;
+    font-family: Poppins;
+    font-size: 1.4rem;
+  }
 
   .image-logo {
     display: flex;

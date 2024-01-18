@@ -76,7 +76,9 @@ export function SignIn() {
           }}
         />
 
-        <Link to="/register">Criar conta</Link>
+        <Link to="/register" className="createAccount">
+          Criar conta
+        </Link>
       </Form>
     </Container>
   )
