@@ -26,7 +26,7 @@
     <img src="./src/assets/cap.png" alt="Image Example" width="400px">
 </p>
 
-<h2 id="about">📌 About</h2>
+<h2 id="Sobre">📌 About</h2>
 
 O Food Explorer é uma incrível aplicação web que simula um cardápio interativo de um restaurante fictício. Foi criado para proporcionar uma experiência envolvente e informativa aos usuários, tornando a exploração dos pratos, bebidas e opções do menu algo interativo e visualmente atraente. Com o Food Explorer, você pode navegar pelos pratos de maneira fácil, conferir imagens apetitosas, ler descrições detalhadas e obter informações completas sobre cada item, criando assim uma experiência gastronômica virtual única. Explore, descubra e mergulhe nesse mundo de sabores com o Food Explorer..
 
@@ -55,7 +55,7 @@ Para rodar o projeto, você irá precisar:
 - [NodeJS](https://nodejs.org/en) - Versão 17 ou superior
 - [NPM](https://www.npmjs.com/)
 
-<h3>Cloning</h3>
+<h3>Clonando</h3>
 
 Para clonar o projeto e rodar locamente, siga o passo a passo abaixo:
 
