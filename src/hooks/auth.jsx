@@ -40,12 +40,11 @@ export function AuthProvider({ children }) {
 
   async function updateProfile({ user, avatarFile }) {
     localStorage.getItem('@foodexplorer:user')
-    console.log('user', user.avatar)
     try {
       if (avatarFile) {
         const fileUploadForm = new FormData()
         fileUploadForm.append('avatar', avatarFile)
-        const response = await api.get(`users/${user.avatar}`, fileUploadForm)
+        const response = await api.patch(`users/avatar`, fileUploadForm)
         user.avatar = response.data.avatar
       }
 
