@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { LuUpload } from 'react-icons/lu'
-import { PiArrowArcLeftDuotone } from 'react-icons/pi'
+import { PiArrowArcLeftDuotone, PiTrashLight } from 'react-icons/pi'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
@@ -20,6 +20,7 @@ import {
 
 export function Edit() {
   const navigate = useNavigate()
+  const params = useParams()
   const { id } = useParams()
   const [dishDetails, setDishDetails] = useState({})
   const [name, setName] = useState('')
@@ -34,6 +35,8 @@ export function Edit() {
 
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState([''])
+
+  const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).isAdmin
 
   function handleChangeImage(event) {
     const file = event.target.files[0]
@@ -106,6 +109,20 @@ export function Edit() {
     })
     toast.success('Prato atualizado com sucesso!')
     navigate('/')
+  }
+
+  async function handleRemoveDish() {
+    const confirm = window.confirm('Deseja realmente deletar este prato?')
+
+    if (confirm) {
+      try {
+        await api.delete(`/dishes/${params.id}`)
+        toast.success('Prato deletado com sucesso!')
+        navigate(-1)
+      } catch (error) {
+        toast.error('Erro ao deletar prato!')
+      }
+    }
   }
 
   return (
@@ -225,6 +242,13 @@ export function Edit() {
                   handleSubmit()
                 }}
               />
+              {isAdmin ? (
+                <Button
+                  title="Deletar prato"
+                  onClick={handleRemoveDish}
+                  icon={PiTrashLight}
+                />
+              ) : null}
             </ButtonsWrapper>
           </div>
         </Form>
