@@ -10,6 +10,7 @@ import { Input } from '../../components/Input'
 import { Avatar, Container, Form } from './styles'
 
 import avatarPlaceholder from '../../assets/avatarp.svg'
+import { api } from '../../services/api'
 
 export function Profile() {
   const { user, userAvatar, updateProfile } = useAuth()
@@ -37,6 +38,12 @@ export function Profile() {
     const userUpdated = Object.assign(user, updated)
 
     await updateProfile({ user: userUpdated, avatarFile })
+
+    try {
+      await api.put('/users', avatarFile)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   function handleChangeAvatar(event) {
