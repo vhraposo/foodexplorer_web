@@ -73,18 +73,14 @@ export function New() {
     try {
       const formattedPrice = formatCurrency(price)
 
-      const formData = new FormData()
-      formData.append('name', name)
-      formData.append('description', description)
-      formData.append('image', imageFile)
-      formData.append('price', formattedPrice)
-      formData.append('category', category)
-
-      ingredients.forEach((ingredient, index) => {
-        formData.append(`ingredients[${index}]`, ingredient)
+      await api.post('/dishes', {
+        name,
+        description,
+        price: formattedPrice,
+        image,
+        category,
+        ingredients,
       })
-
-      await api.post('/dishes', formData)
 
       toast.success('Prato cadastrado com sucesso!')
     } catch (error) {
