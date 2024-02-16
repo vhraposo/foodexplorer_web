@@ -31,6 +31,7 @@ export function Profile() {
     const updated = {
       name,
       email,
+      avatar,
       password: passwordNew,
       old_password: passwordOld,
     }
@@ -48,7 +49,7 @@ export function Profile() {
 
   function handleChangeAvatar(event) {
     const file = event.target.files[0]
-    setAvatarFile(file)
+    setAvatar(file)
 
     const imagePreview = URL.createObjectURL(file)
     setAvatar(imagePreview)
