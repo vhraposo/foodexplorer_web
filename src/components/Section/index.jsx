@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
-import { PiArrowArcLeftDuotone, PiReceiptLight } from 'react-icons/pi'
+import {
+  PiArrowArcLeftDuotone,
+  PiReceiptLight,
+  PiTrashLight,
+} from 'react-icons/pi'
 import { TiMinus, TiPlus } from 'react-icons/ti'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -13,7 +17,7 @@ export function Section({ title, children }) {
   const [count, setCount] = useState(1)
   const { name, description, price, image, ingredients } = data ?? {}
   const updatedPrice = (price * count).toFixed(2)
-
+  const isAdmin = JSON.parse(localStorage.getItem('@foodexplorer:user')).isAdmin
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -52,6 +56,20 @@ export function Section({ title, children }) {
     }
   }
 
+  async function handleRemoveDish() {
+    const confirm = window.confirm('Deseja realmente deletar este prato?')
+
+    if (confirm) {
+      try {
+        await api.delete(`/dishes/${params.id}`)
+        toast.success('Prato deletado com sucesso!')
+        navigate(-1)
+      } catch (error) {
+        toast.error('Erro ao deletar prato!')
+      }
+    }
+  }
+
   return (
     <Container>
       <div className="backdiv" title="voltar">
@@ -85,11 +103,19 @@ export function Section({ title, children }) {
                   onClick={handleIncrement}
                 />
               </div>
-              <Button
-                icon={PiReceiptLight}
-                title={`pedir ∙ ${price}`}
-                onClick={addToChart}
-              />
+              {isAdmin ? (
+                <Button
+                  icon={PiTrashLight}
+                  title={`deletar prato`}
+                  onClick={handleRemoveDish}
+                />
+              ) : (
+                <Button
+                  icon={PiReceiptLight}
+                  title={`pedir ∙ ${price}`}
+                  onClick={addToChart}
+                />
+              )}
             </div>
           </div>
         </div>
