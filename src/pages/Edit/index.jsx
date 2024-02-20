@@ -185,7 +185,7 @@ export function Edit() {
                   Selecione a categoria
                 </option>
                 <option value="Bebidas">Bebidas</option>
-                <option value="Massas">Massas</option>
+                <option value="Refeições">Refeições</option>
                 <option value="Sobremesas">Sobremesas</option>
               </select>
             </InputWrapper>
@@ -240,6 +240,7 @@ export function Edit() {
                 title="Salvar alterações"
                 onClick={() => {
                   handleSubmit()
+                  navigate('/')
                 }}
               />
               {isAdmin ? (
