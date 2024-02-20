@@ -42,6 +42,7 @@ export function Profile() {
 
     try {
       await api.put('/users', avatarFile)
+      navigate('/')
     } catch (err) {
       console.log(err)
     }
