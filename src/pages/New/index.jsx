@@ -58,25 +58,15 @@ export function New() {
       prevState.filter((item) => item !== ingredient),
     )
   }
-  const formatCurrency = (value) => {
-    const numericValue = value.replace(/[^\d]/g, '')
 
-    const formattedValue = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-    }).format(numericValue / 100)
-
-    return formattedValue
-  }
   async function handleAddNewDish() {
     try {
-      const formattedPrice = formatCurrency(price)
+      // const formattedPrice = formatCurrency(price)
 
       await api.post('/dishes', {
         name,
         description,
-        price: formattedPrice,
+        price,
         image,
         category,
         ingredients,
@@ -175,7 +165,7 @@ export function New() {
             <InputWrapper>
               <label>Preço</label>
               <Input
-                value={formatCurrency(price)}
+                value={price}
                 dark={false}
                 placeholder="R$ 00,00"
                 onChange={(e) => setPrice(e.target.value)}

@@ -63,17 +63,6 @@ export function Edit() {
       prevState.filter((item) => item !== ingredient),
     )
   }
-  const formatCurrency = (value) => {
-    const numericValue = value.replace(/[^\d]/g, '')
-
-    const formattedValue = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-    }).format(numericValue / 100)
-
-    return formattedValue
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -96,14 +85,13 @@ export function Edit() {
   }, [])
 
   const handleSubmit = async () => {
-    const formattedPrice = formatCurrency(price)
     const ingredientNames = ingredients.map((ingredient) => ingredient.name)
 
     await api.put(`/dishes/${dishDetails.id}`, {
       name,
       description,
       image: imagePreview,
-      price: formattedPrice,
+      price,
       category,
       ingredients: ingredientNames,
     })
@@ -218,7 +206,7 @@ export function Edit() {
             <InputWrapper>
               <label>Preço</label>
               <Input
-                value={formatCurrency(price)}
+                value={price}
                 dark={false}
                 placeholder="R$ 00,00"
                 onChange={(e) => setPrice(e.target.value)}
