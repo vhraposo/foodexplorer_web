@@ -81,8 +81,6 @@ export function New() {
         category,
         ingredients,
       })
-
-      toast.success('Prato cadastrado com sucesso!')
     } catch (error) {
       console.error(error)
       toast.error('Erro ao cadastrar o prato.')
@@ -144,7 +142,7 @@ export function New() {
                   Selecione a categoria
                 </option>
                 <option value="Bebidas">Bebidas</option>
-                <option value="Massas">Massas</option>
+                <option value="Refeições">Refeições</option>
                 <option value="Sobremesas">Sobremesas</option>
               </select>
             </InputWrapper>
@@ -198,6 +196,7 @@ export function New() {
                 title="Salvar alterações"
                 onClick={() => {
                   handleAddNewDish()
+                  navigate('/')
                   toast.success('Prato cadastrado com sucesso!')
                 }}
               />
