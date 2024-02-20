@@ -10,7 +10,7 @@ import { api } from '../../services/api'
 
 export function Home() {
   const [dishes, setDishes] = useState({
-    massas: [],
+    refeições: [],
     bebidas: [],
     sobremesas: [],
   })
