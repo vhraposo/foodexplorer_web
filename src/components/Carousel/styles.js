@@ -9,6 +9,7 @@ export const Container = styled.section`
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
     margin-left: 2.4rem;
+    margin-top: 5rem;
   }
 
   .splide__list {
@@ -148,6 +149,11 @@ export const Container = styled.section`
   .splide__slide__container__info {
     p {
       padding: 1rem 1rem;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      text-overflow: ellipsis;
     }
   }
 
@@ -194,7 +200,6 @@ export const Container = styled.section`
         justify-content: center;
         flex-direction: column;
         text-align: center;
-
         p {
           padding: 1rem 4rem;
         }
