@@ -117,7 +117,7 @@ export function Header({ onChange, ...rest }) {
 
         <ul>
           <li>
-            <a href="/">Home</a>
+            <a href="/">Inicio</a>
           </li>
           {isAdmin && (
             <li>
@@ -125,8 +125,11 @@ export function Header({ onChange, ...rest }) {
             </li>
           )}
           <li>
+            <a href="/profile/:id">Perfil</a>
+          </li>
+          <li>
             <a onClick={handleSignOut} href="/">
-              Logout
+              Sair
             </a>
           </li>
         </ul>
