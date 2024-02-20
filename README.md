@@ -26,7 +26,7 @@
 
 O Food Explorer é uma incrível aplicação web que simula um cardápio interativo de um restaurante fictício. Foi criado para proporcionar uma experiência envolvente e informativa aos usuários, tornando a exploração dos pratos, bebidas e opções do menu algo interativo e visualmente atraente. Com o Food Explorer, você pode navegar pelos pratos de maneira fácil, conferir imagens apetitosas, ler descrições detalhadas e obter informações completas sobre cada item, criando assim uma experiência gastronômica virtual única. Explore, descubra e mergulhe nesse mundo de sabores com o Food Explorer..
 
-[![project][PROJECT__BADGE]](https://github.com/vhraposo/foodexplorer_web)
+[![project][PROJECT__BADGE]](https://foodexplorer-web.vercel.app/)
 
 
 <h2 id="about">📌 Tecnologias</h2>
