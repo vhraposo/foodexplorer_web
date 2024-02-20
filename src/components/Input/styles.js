@@ -34,4 +34,11 @@ export const Container = styled.label`
     left: 1rem;
     font-size: 1.6rem;
   }
+
+  @media (min-width: 700px) {
+    svg {
+      font-size: 2rem;
+      top: 3.5rem;
+    }
+  }
 `
